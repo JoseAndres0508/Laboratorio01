@@ -184,6 +184,9 @@ body {
   position: absolute;
   inset: 0;
   margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-bg-img {
@@ -192,6 +195,7 @@ body {
   object-fit: cover;
   object-position: center;
   filter: brightness(0.35);
+  display: block;
 }
 
 /* Partículas de brasa */
@@ -368,11 +372,14 @@ body {
   position: relative;
   border: 1px solid rgba(201,151,58,0.3);
   padding: 1rem;
+  max-width: 380px;
+  margin: 0 auto;
 }
 
 .nosotros-foto {
   width: 100%;
-  aspect-ratio: 4/5;
+  max-height: 420px;
+  aspect-ratio: 3/4;
   object-fit: cover;
   object-position: center;
   display: block;
