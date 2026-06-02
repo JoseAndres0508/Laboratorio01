@@ -209,3 +209,29 @@ btn.addEventListener('click', () => {
     setTimeout(() => observeReveal('.carta-grid .menu-card'), 100);
   }
 });
+
+/* =============================================
+   5. BOTÓN FLOTANTE — Volver al inicio
+   Aparece cuando el usuario baja más de 400px.
+   Al hacer click sube suavemente al top.
+   ============================================= */
+
+const btnTop = document.getElementById('btnTop');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    btnTop.hidden = false;
+    // Pequeño delay para que la transición opacity sea visible
+    requestAnimationFrame(() => btnTop.classList.add('visible'));
+  } else {
+    btnTop.classList.remove('visible');
+    // Esperar que termine la transición antes de ocultar
+    btnTop.addEventListener('transitionend', () => {
+      if (!btnTop.classList.contains('visible')) btnTop.hidden = true;
+    }, { once: true });
+  }
+}, { passive: true });
+
+btnTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});

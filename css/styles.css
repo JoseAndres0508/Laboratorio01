@@ -183,10 +183,15 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(192,57,10,0.35) 0%, transparent 70%),
-    radial-gradient(ellipse 100% 60% at 50% 80%, rgba(232,101,10,0.15) 0%, transparent 60%),
-    linear-gradient(170deg, #0d0b09 0%, #1a1008 40%, #0f0805 100%);
+  margin: 0;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.35);
 }
 
 /* Partículas de brasa */
@@ -361,27 +366,16 @@ body {
 
 .nosotros-img {
   position: relative;
-}
-
-.img-frame {
   border: 1px solid rgba(201,151,58,0.3);
   padding: 1rem;
 }
 
-.img-placeholder {
+.nosotros-foto {
   width: 100%;
   aspect-ratio: 4/5;
-}
-
-.parrilla-img {
-  background:
-    radial-gradient(ellipse at 50% 80%, rgba(192,57,10,0.6), transparent 60%),
-    radial-gradient(ellipse at 30% 50%, rgba(232,101,10,0.3), transparent 50%),
-    linear-gradient(160deg, #1a1008 0%, #2a1206 50%, #0f0805 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5rem;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .nosotros-badge {
@@ -512,14 +506,12 @@ body {
 }
 
 .menu-img {
-  aspect-ratio: 3/2;
   width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
-
-.bife-img     { background: radial-gradient(ellipse at 40% 60%, rgba(180,60,10,0.7), transparent 60%), linear-gradient(135deg, #2a1206, #1a0e05); }
-.entrana-img  { background: radial-gradient(ellipse at 60% 40%, rgba(200,80,10,0.6), transparent 55%), linear-gradient(135deg, #1e0e04, #2a1006); }
-.costillas-img{ background: radial-gradient(ellipse at 50% 70%, rgba(150,40,5,0.7),  transparent 55%), linear-gradient(135deg, #1a0d04, #200e04); }
-.ojo-img      { background: radial-gradient(ellipse at 45% 55%, rgba(210,90,10,0.6), transparent 55%), linear-gradient(135deg, #251004, #1a0d04); }
 
 .menu-info {
   padding: 1.5rem;
@@ -617,14 +609,7 @@ body {
 }
 
 /* Imágenes de los cortes adicionales */
-.tbone-img    { background: radial-gradient(ellipse at 45% 55%, rgba(160,50,10,0.65), transparent 55%), linear-gradient(135deg, #200e04, #2a1206); }
-.vacio-img    { background: radial-gradient(ellipse at 55% 45%, rgba(190,70,10,0.55), transparent 55%), linear-gradient(150deg, #1a0e05, #231005); }
-.asado-img    { background: radial-gradient(ellipse at 40% 60%, rgba(175,55,8,0.65),  transparent 55%), linear-gradient(140deg, #240f04, #1a0d04); }
-.lomo-img     { background: radial-gradient(ellipse at 50% 50%, rgba(200,75,10,0.6),  transparent 55%), linear-gradient(135deg, #2a1206, #1a0e05); }
-.picanha-img  { background: radial-gradient(ellipse at 60% 55%, rgba(185,65,8,0.6),   transparent 55%), linear-gradient(145deg, #1e0d04, #251005); }
-.matambre-img { background: radial-gradient(ellipse at 45% 50%, rgba(170,50,5,0.6),   transparent 55%), linear-gradient(135deg, #1a0c04, #221005); }
-.cuadril-img  { background: radial-gradient(ellipse at 50% 60%, rgba(195,72,10,0.6),  transparent 55%), linear-gradient(140deg, #200e04, #1a0d04); }
-.corderito-img{ background: radial-gradient(ellipse at 55% 45%, rgba(165,48,6,0.65),  transparent 55%), linear-gradient(135deg, #1e0d04, #2a1206); }
+/* Imágenes reales via <img> en HTML — no se necesitan backgrounds por clase */
 
 .btn-outline {
   display: inline-block;
@@ -677,8 +662,17 @@ body {
   transition: transform var(--transition);
 }
 
-.g-item:hover { transform: scale(1.02); }
-.g-item:focus-visible { transform: scale(1.02); }
+.g-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform var(--transition);
+}
+
+.g-item:hover img,
+.g-item:focus-visible img { transform: scale(1.05); }
 
 /* Posiciones en el grid */
 .g1 { grid-column: 1 / 4; grid-row: 1; }
@@ -687,20 +681,15 @@ body {
 .g4 { grid-column: 3 / 5; grid-row: 2; }
 .g5 { grid-column: 5 / 7; grid-row: 2; }
 
-.g1 { background: radial-gradient(ellipse at 40% 70%, rgba(192,57,10,0.5), transparent 60%), linear-gradient(135deg, #2a1206, #1a0e05); }
-.g2 { background: radial-gradient(ellipse at 60% 40%, rgba(200,80,10,0.4), transparent 55%), linear-gradient(160deg, #1e1008, #2a1206); }
-.g3 { background: radial-gradient(ellipse at 50% 60%, rgba(180,60,10,0.5), transparent 55%), linear-gradient(145deg, #1a0e05, #250f04); }
-.g4 { background: radial-gradient(ellipse at 45% 50%, rgba(210,90,10,0.4), transparent 55%), linear-gradient(135deg, #200e04, #1a1008); }
-.g5 { background: radial-gradient(ellipse at 55% 65%, rgba(170,50,5,0.5), transparent 55%), linear-gradient(155deg, #1a0d04, #2a1206); }
-
 .g-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(13,11,9,0.25);
+  background: rgba(13,11,9,0.2);
   transition: background var(--transition);
+  pointer-events: none;
 }
 
-.g-item:hover .g-overlay { background: rgba(13,11,9,0.05); }
+.g-item:hover .g-overlay { background: rgba(13,11,9,0.0); }
 
 /* =============================================
    TESTIMONIOS — Flexbox
@@ -1126,4 +1115,45 @@ label {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* =============================================
+   BOTÓN FLOTANTE — Volver al inicio
+   ============================================= */
+.btn-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 200;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-coal, #0d0b09);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 12px rgba(201,151,58,0.15);
+  transition: background var(--transition), transform var(--transition),
+              box-shadow var(--transition), opacity var(--transition);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Visible cuando JS quita hidden y añade .visible */
+.btn-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.btn-top:hover,
+.btn-top:focus-visible {
+  background: var(--color-ember);
+  border-color: var(--color-ember);
+  color: var(--color-white);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(192,57,10,0.45), 0 0 20px rgba(232,101,10,0.3);
 }
