@@ -15,6 +15,8 @@
   padding: 0;
 }
 
+ul, ol { list-style: none; }
+
 :root {
   /* Tema oscuro (default) */
   --color-bg:         #0d0b09;
@@ -660,6 +662,7 @@ body {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 250px 250px;
   gap: 0.8rem;
+  list-style: none;
 }
 
 .g-item {
@@ -714,6 +717,7 @@ body {
   padding: 0 8rem;
   flex-wrap: wrap;
   justify-content: center;
+  list-style: none;
 }
 
 .test-card {
