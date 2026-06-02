@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="El Rescoldo — Restaurante de carnes a la parrilla en Buenos Aires. Reservá tu mesa y viví la experiencia del fuego lento." />
+  <title>EL RESCOLDO — Carnes a la Parrilla</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Skip-link para accesibilidad por teclado -->
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- NAV — Flexbox -->
+  <nav class="nav" role="navigation" aria-label="Navegación principal">
+    <a href="#" class="nav-logo" aria-label="El Rescoldo — Ir al inicio">EL RESCOLDO</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+      <span aria-hidden="true">☰</span>
+    </button>
+    <ul class="nav-links" id="nav-menu" role="list">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#reservas" class="nav-cta">Reservar</a></li>
+    </ul>
+
+  </nav>
+
+  <main id="contenido-principal">
+
+    <!-- HERO -->
+    <header class="hero" role="banner">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="ember" style="--x:15%;--y:70%;--s:6px;--d:0s"   aria-hidden="true"></span>
+        <span class="ember" style="--x:25%;--y:55%;--s:4px;--d:0.4s" aria-hidden="true"></span>
+        <span class="ember" style="--x:35%;--y:65%;--s:8px;--d:1s"   aria-hidden="true"></span>
+        <span class="ember" style="--x:50%;--y:75%;--s:5px;--d:0.2s" aria-hidden="true"></span>
+        <span class="ember" style="--x:65%;--y:60%;--s:7px;--d:0.7s" aria-hidden="true"></span>
+        <span class="ember" style="--x:75%;--y:70%;--s:4px;--d:1.3s" aria-hidden="true"></span>
+        <span class="ember" style="--x:85%;--y:65%;--s:6px;--d:0.5s" aria-hidden="true"></span>
+        <span class="ember" style="--x:10%;--y:80%;--s:3px;--d:0.9s" aria-hidden="true"></span>
+        <span class="ember" style="--x:90%;--y:50%;--s:5px;--d:0.1s" aria-hidden="true"></span>
+      </div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Desde 1987 · Buenos Aires</p>
+        <h1 class="hero-title">El arte del<br /><em>fuego lento</em></h1>
+        <p class="hero-subtitle">Carnes nobles. Brasas vivas. Tradición que se siente en cada bocado.</p>
+        <div class="hero-actions" role="group" aria-label="Acciones principales">
+          <a href="#reservas" class="btn-primary">Reservar mesa</a>
+          <a href="#menu" class="btn-ghost">Ver menú</a>
+        </div>
+      </div>
+      <a href="#nosotros" class="hero-scroll" aria-label="Desplazarse hacia abajo">↓</a>
+    </header>
+
+    <!-- BAND decorativa -->
+    <div class="band" aria-hidden="true">
+      <div class="band-track">
+        <span>Parrilla al Carbón</span><span class="dot">✦</span>
+        <span>Cortes Premium</span><span class="dot">✦</span>
+        <span>Vinos Seleccionados</span><span class="dot">✦</span>
+        <span>Ambiente Único</span>
+      </div>
+    </div>
+
+    <!-- NOSOTROS — Grid -->
+    <section class="nosotros" id="nosotros" aria-labelledby="nosotros-titulo">
+      <div class="nosotros-img">
+        <div class="img-frame">
+          <!-- Imagen decorativa representada con div; en producción usar <img> con alt -->
+          <div class="img-placeholder parrilla-img" role="img" aria-label="Parrillero encendiendo las brasas en El Rescoldo"></div>
+        </div>
+        <div class="nosotros-badge" aria-label="Más de 35 años de experiencia">
+          +35<br /><span>años</span>
+        </div>
+      </div>
+      <article class="nosotros-text">
+        <p class="section-label" aria-hidden="true">— Nuestra historia</p>
+        <h2 id="nosotros-titulo">Tres décadas<br />encendiendo<br /><em>pasiones</em></h2>
+        <p>Nacimos de la convicción de que una buena carne necesita solo tres cosas: el corte correcto, el punto exacto y el tiempo necesario. Sin atajos. Sin artificios.</p>
+        <p>Nuestro parrillero mayor, Don Héctor, guarda el secreto de las brasas perfectas desde que aprendió el oficio de su padre en las pampas del sur.</p>
+        <div class="stats" role="list" aria-label="Estadísticas del restaurante">
+          <div class="stat" role="listitem">
+            <strong>12</strong><span>Cortes propios</span>
+          </div>
+          <div class="stat" role="listitem">
+            <strong>80+</strong><span>Etiquetas de vino</span>
+          </div>
+          <div class="stat" role="listitem">
+            <strong>200</strong><span>Comensales</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- MENÚ — Grid -->
+    <section class="menu" id="menu" aria-labelledby="menu-titulo">
+      <div class="menu-header">
+        <p class="section-label" aria-hidden="true">— La carta</p>
+        <h2 id="menu-titulo">Cortes que<br /><em>hablan por sí solos</em></h2>
+      </div>
+      <div class="menu-grid" role="list" aria-label="Platos del menú">
+
+        <article class="menu-card featured" role="listitem" aria-labelledby="plato-bife">
+          <div class="menu-img bife-img" role="img" aria-label="Bife de chorizo dorado a las brasas"></div>
+          <div class="menu-info">
+            <span class="menu-tag" aria-label="Plato estrella de la casa">Estrella de la casa</span>
+            <h3 id="plato-bife">Bife de Chorizo</h3>
+            <p>500g de corte premium madurado 21 días. Costra dorada, corazón rosado.</p>
+            <span class="menu-price" aria-label="Precio: 4800 pesos">$4.800</span>
+          </div>
+        </article>
+
+        <article class="menu-card" role="listitem" aria-labelledby="plato-entrana">
+          <div class="menu-img entrana-img" role="img" aria-label="Entraña sellada a la llama viva"></div>
+          <div class="menu-info">
+            <h3 id="plato-entrana">Entraña a la Llama</h3>
+            <p>Sellada directamente sobre las llamas. Jugosa e incomparable.</p>
+            <span class="menu-price" aria-label="Precio: 3600 pesos">$3.600</span>
+          </div>
+        </article>
+
+        <article class="menu-card" role="listitem" aria-labelledby="plato-costillas">
+          <div class="menu-img costillas-img" role="img" aria-label="Costillas de ternera cocinadas lentamente"></div>
+          <div class="menu-info">
+            <h3 id="plato-costillas">Costillas de Ternera</h3>
+            <p>6 horas de cocción lenta sobre brasas de quebracho blanco.</p>
+            <span class="menu-price" aria-label="Precio: 5200 pesos">$5.200</span>
+          </div>
+        </article>
+
+        <article class="menu-card" role="listitem" aria-labelledby="plato-ojo">
+          <div class="menu-img ojo-img" role="img" aria-label="Ojo de bife con marbling perfecto"></div>
+          <div class="menu-info">
+            <h3 id="plato-ojo">Ojo de Bife</h3>
+            <p>El corte del parrillero. Marbling perfecto, sabor inigualable.</p>
+            <span class="menu-price" aria-label="Precio: 5800 pesos">$5.800</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Contenedor del botón — estado inicial: debajo de las 4 cartas -->
+      <div class="menu-footer" id="menuFooter">
+        <button
+          class="btn-outline"
+          id="btnCarta"
+          aria-expanded="false"
+          aria-controls="carta-completa"
+          aria-label="Ver los 12 cortes de la carta completa"
+        >
+          Ver carta completa <span class="btn-arrow" aria-hidden="true">↓</span>
+        </button>
+      </div>
+
+      <!-- CARTA COMPLETA — 8 cortes adicionales, oculta por defecto -->
+      <div
+        class="carta-completa"
+        id="carta-completa"
+        hidden
+        aria-label="Carta completa — todos los cortes"
+      >
+        <div class="carta-divider" aria-hidden="true">
+          <span>— Todos nuestros cortes —</span>
+        </div>
+        <div class="carta-grid" role="list" aria-label="Cortes adicionales">
+
+          <article class="menu-card" role="listitem" aria-labelledby="plato-tbone">
+            <div class="menu-img tbone-img" role="img" aria-label="T-Bone sobre la parrilla"></div>
+            <div class="menu-info">
+              <h3 id="plato-tbone">T-Bone</h3>
+              <p>El mejor de dos mundos: lomo y bife unidos por el hueso. 600g de pura tradición.</p>
+              <span class="menu-price" aria-label="Precio: 6400 pesos">$6.400</span>
+            </div>
+          </article>
+
+          <article class="menu-card" role="listitem" aria-labelledby="plato-vacio">
+            <div class="menu-img vacio-img" role="img" aria-label="Vacío a la parrilla listo para servir"></div>
+            <div class="menu-info">
+              <h3 id="plato-vacio">Vacío a la Parrilla</h3>
+              <p>Corte popular del asado argentino. Crocante por fuera, tierno y jugoso por dentro.</p>
+              <span class="menu-price" aria-label="Precio: 3900 pesos">$3.900</span>
+            </div>
+          </article>
+
+          <article class="menu-card" role="listitem" aria-labelledby="plato-asado">
+            <div class="menu-img asado-img" role="img" aria-label="Tira de asado sobre brasas vivas"></div>
+            <div class="menu-info">
+              <h3 id="plato-asado">Tira de Asado</h3>
+              <p>El clásico de los domingos elevado a su máxima expresión. Brasas de quebracho, sin apuros.</p>
+              <span class="menu-price" aria-label="Precio: 4200 pesos">$4.200</span>
+            </div>
+          </article>
+
+          <article class="menu-card" role="listitem" aria-labelledby="plato-lomo">
+            <div class="menu-img lomo-img" role="img" aria-label="Lomo al punto rosado con hierbas"></div>
+            <div class="menu-info">
+              <h3 id="plato-lomo">Lomo al Rescoldo</h3>
+              <p>El corte más noble, cocinado lentamente entre las brasas apagadas para un resultado suave e incomparable.</p>
+              <span class="menu-price" aria-label="Precio: 6800 pesos">$6.800</span>
+            </div>
+          </article>
+
+          <article class="menu-card" role="listitem" aria-labelledby="plato-picanha">
+            <div class="menu-img picanha-img" role="img" aria-label="Picanha brasilera con tapa de grasa dorada"></div>
+            <div class="menu-info">
+              <h3 id="plato-picanha">Picanha Brasilera</h3>
+              <p>Importada directamente. Tapa de grasa dorada que potencia el sabor de cada bocado.</p>
+              <span class="menu-price" aria-label="Precio: 5600 pesos">$5.600</span>
+            </div>
+          </article>
+
+          <article class="menu-card" role="listitem" aria-labelledby="plato-matambre">
+            <div class="menu-img matambre-img" role="img" aria-label="Matambre a la pizza con mozzarella derretida"></div>
+            <div class="menu-info">
+              <h3 id="plato-matambre">Matambre a la Pizza</h3>
+              <p>Relleno con tomate artesanal y mozzarella de búfala. Un clásico porteño reinterpretado.</p>
+              <span class="menu-price" aria-label="Precio: 3400 pesos">$3.400</span>
+            </div>
+          </article>
+
+          <article class="menu-card" role="listitem" aria-labelledby="plato-cuadril">
+            <div class="menu-img cuadril-img" role="img" aria-label="Cuadril en su punto exacto sobre tabla de madera"></div>
+            <div class="menu-info">
+              <h3 id="plato-cuadril">Cuadril al Carbón</h3>
+              <p>Corte versátil con equilibrio perfecto entre terneza y sabor. Ideal para compartir.</p>
+              <span class="menu-price" aria-label="Precio: 4500 pesos">$4.500</span>
+            </div>
+          </article>
+
+          <article class="menu-card" role="listitem" aria-labelledby="plato-corderito">
+            <div class="menu-img corderito-img" role="img" aria-label="Corderito patagónico al asador"></div>
+            <div class="menu-info">
+              <span class="menu-tag" aria-label="Disponible solo los fines de semana">Fin de semana</span>
+              <h3 id="plato-corderito">Corderito Patagónico</h3>
+              <p>Al asador, estilo patagónico. Solo disponibles sábados y domingos, en cantidad limitada.</p>
+              <span class="menu-price" aria-label="Precio: 7200 pesos">$7.200</span>
+            </div>
+          </article>
+
+        </div>
+        <!-- El botón se mueve aquí al abrirse (via JS) -->
+      </div>
+
+    </section>
+
+    <!-- GALERIA — Grid -->
+    <section class="galeria" id="galeria" aria-labelledby="galeria-titulo">
+      <p class="section-label center" aria-hidden="true">— Galería</p>
+      <h2 id="galeria-titulo" class="center">El fuego<br /><em>nunca duerme</em></h2>
+      <div class="gallery-grid" role="list" aria-label="Galería fotográfica del restaurante">
+        <div class="g-item g1" role="listitem" aria-label="Vista del salón principal con la parrilla encendida"><div class="g-overlay" aria-hidden="true"></div></div>
+        <div class="g-item g2" role="listitem" aria-label="Cortes de carne sobre las brasas"><div class="g-overlay" aria-hidden="true"></div></div>
+        <div class="g-item g3" role="listitem" aria-label="Detalle de las brasas de quebracho"><div class="g-overlay" aria-hidden="true"></div></div>
+        <div class="g-item g4" role="listitem" aria-label="Plato final presentado con guarniciones"><div class="g-overlay" aria-hidden="true"></div></div>
+        <div class="g-item g5" role="listitem" aria-label="Parrillero trabajando en la parrilla"><div class="g-overlay" aria-hidden="true"></div></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS — Grid -->
+    <section class="testimonios" aria-labelledby="testimonios-titulo">
+      <h2 id="testimonios-titulo" class="sr-only">Opiniones de nuestros clientes</h2>
+      <div class="test-track" role="list">
+        <article class="test-card" role="listitem">
+          <blockquote>
+            <p>"El mejor bife que comí en mi vida. Punto. El parrillero es un artista."</p>
+            <footer><cite>— Martina R., Google Reviews ★★★★★</cite></footer>
+          </blockquote>
+        </article>
+        <article class="test-card" role="listitem">
+          <blockquote>
+            <p>"El ambiente, la atención y sobre todo las brasas hacen de esto una experiencia única."</p>
+            <footer><cite>— Carlos M., TripAdvisor ★★★★★</cite></footer>
+          </blockquote>
+        </article>
+        <article class="test-card" role="listitem">
+          <blockquote>
+            <p>"Las costillas son una obra de arte. Volvemos cada aniversario desde hace 10 años."</p>
+            <footer><cite>— Laura &amp; Pablo, Instagram ★★★★★</cite></footer>
+          </blockquote>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESERVAS -->
+    <section class="reservas" id="reservas" aria-labelledby="reservas-titulo">
+      <div class="reservas-inner">
+        <p class="section-label light" aria-hidden="true">— Reservaciones</p>
+        <h2 id="reservas-titulo">Una mesa<br /><em>junto al fuego</em><br />te espera</h2>
+
+        <form class="reserva-form" id="reservaForm" novalidate aria-label="Formulario de reserva de mesa">
+
+          <div class="form-group">
+            <label for="nombre">Nombre completo <span aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Tu nombre"
+              required
+              autocomplete="name"
+              aria-required="true"
+              aria-describedby="nombre-hint"
+            />
+            <span id="nombre-hint" class="field-hint">Ingresá tu nombre completo</span>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono / WhatsApp <span aria-hidden="true">*</span></label>
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              placeholder="+54 11 0000-0000"
+              required
+              autocomplete="tel"
+              aria-required="true"
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fecha">Fecha de reserva <span aria-hidden="true">*</span></label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                required
+                aria-required="true"
+              />
+            </div>
+            <div class="form-group">
+              <label for="personas">Número de personas <span aria-hidden="true">*</span></label>
+              <select id="personas" name="personas" required aria-required="true">
+                <option value="" disabled selected>Seleccioná</option>
+                <option value="1-2">1–2 personas</option>
+                <option value="3-4">3–4 personas</option>
+                <option value="5-6">5–6 personas</option>
+                <option value="7+">Grupo (+7)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notas">Ocasión especial o pedido</label>
+            <textarea
+              id="notas"
+              name="notas"
+              placeholder="¿Alguna ocasión especial o pedido especial?"
+              rows="3"
+              aria-describedby="notas-hint"
+            ></textarea>
+            <span id="notas-hint" class="field-hint">Opcional</span>
+          </div>
+
+          <button type="submit" class="btn-fire">Confirmar reserva ✦</button>
+        </form>
+
+        <div
+          class="reserva-confirm"
+          id="confirm"
+          role="alert"
+          aria-live="polite"
+          aria-atomic="true"
+          hidden
+        >
+          ¡Reserva recibida! Te contactaremos pronto para confirmar. 🥩🔥
+          <br /><small>Tu información fue guardada en este dispositivo.</small>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-logo" aria-label="El Rescoldo">EL RESCOLDO</p>
+        <address>
+          Av. del Libertador 4820<br />
+          Palermo, Buenos Aires
+        </address>
+        <p>
+          <a href="tel:+541148000000" aria-label="Llamar al restaurante">+54 11 4800-0000</a><br />
+          <a href="mailto:hola@elrescoldo.com.ar" aria-label="Enviar correo al restaurante">hola@elrescoldo.com.ar</a>
+        </p>
+      </div>
+      <div class="footer-hours">
+        <h3>Horarios</h3>
+        <p>Martes a Viernes: 20:00 – 00:30</p>
+        <p>Sábados: 12:30 – 15:30 · 20:00 – 01:00</p>
+        <p>Domingos: 12:30 – 16:00</p>
+      </div>
+      <nav class="footer-social" aria-label="Redes sociales">
+        <h3>Seguinos</h3>
+        <a href="#" aria-label="Seguirnos en Instagram" rel="noopener noreferrer">Instagram</a>
+        <a href="#" aria-label="Seguirnos en Facebook" rel="noopener noreferrer">Facebook</a>
+        <a href="#" aria-label="Ver reseñas en TripAdvisor" rel="noopener noreferrer">TripAdvisor</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 El Rescoldo. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
