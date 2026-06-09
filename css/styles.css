@@ -13,11 +13,12 @@ ul, ol { list-style: none; }
 
 :root {
   --color-bg:         #111111;
-  --color-surface:    #1A1A1A;
-  --color-surface-2:  #222222;
-  --color-footer-bg:  #0A0A0A;
+  --color-surface:    #1c1008;   /* cafe muy oscuro cálido */
+  --color-surface-2:  #2a1206;   /* cafe oscuro con tono rojo */
+  --color-footer-bg:  #0d0603;
   --color-red:        #C0271A;
   --color-red-dark:   #8F1A10;
+  --color-red-bg:     #1a0a07;   /* fondo con tinte rojo para secciones */
   --color-orange:     #D94F1E;
   --color-amber:      #E8821A;
   --color-mustard:    #E8B400;
@@ -25,7 +26,7 @@ ul, ol { list-style: none; }
   --color-white:      #FFFFFF;
   --color-cream:      #F4EFE4;
   --color-parchment:  #D9CDB8;
-  --color-muted:      #8A8078;
+  --color-muted:      #9e8060;
   --ff-display: 'Playfair Display', Georgia, serif;
   --ff-title:   'Oswald', 'Arial Narrow', sans-serif;
   --ff-body:    'Inter', system-ui, sans-serif;
@@ -1459,4 +1460,252 @@ label {
   .mapa-iframe { height: 280px; }
   .btn-wa-float { bottom: 5rem; right: 1.2rem; width: 46px; height: 46px; }
   .btn-wa-float svg { width: 24px; height: 24px; }
+}
+
+/* =============================================
+   INYECCIÓN DE COLOR — toda la página
+   Fondos alternados, bordes, acentos cálidos
+   ============================================= */
+
+/* ---- BAND — rojo sólido ya OK ---- */
+
+/* ---- NOSOTROS — fondo café oscuro cálido ---- */
+.nosotros {
+  background: var(--color-surface) !important;
+  border-top: 4px solid var(--color-red);
+  border-bottom: 4px solid var(--color-orange);
+}
+
+.nosotros-text h2 {
+  color: var(--color-white) !important;
+}
+
+/* ---- MENÚ — fondo con tinte rojo ---- */
+.menu {
+  background: var(--color-red-bg) !important;
+  border-top: 4px solid var(--color-mustard);
+}
+
+.menu-header h2 {
+  color: var(--color-white) !important;
+}
+
+/* Tarjetas del menú — borde naranja, hover con glow rojo */
+.menu-card {
+  background: var(--color-surface-2) !important;
+  border: 1px solid rgba(217,79,30,0.3) !important;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition) !important;
+}
+
+.menu-card:hover,
+.menu-card:focus-within {
+  border-color: var(--color-orange) !important;
+  box-shadow: 0 8px 32px rgba(217,79,30,0.35) !important;
+}
+
+/* Carta completa — fondo alternado */
+.carta-completa {
+  background: var(--color-surface);
+  border-top: 2px solid rgba(232,180,0,0.2);
+  padding-top: 3rem;
+}
+
+/* ---- GALERÍA — franja roja oscura ---- */
+.galeria {
+  background: linear-gradient(160deg, #1a0a07 0%, #0d0603 60%, #1c1008 100%) !important;
+  border-top: 4px solid var(--color-red);
+  border-bottom: 4px solid var(--color-mustard);
+}
+
+.galeria h2 {
+  color: var(--color-white) !important;
+}
+
+/* Carrusel — borde naranja */
+.carrusel {
+  border: 2px solid rgba(217,79,30,0.4);
+}
+
+/* ---- TESTIMONIOS — fondo oscuro cálido ---- */
+.testimonios {
+  background: var(--color-surface-2) !important;
+  border-top: 4px solid var(--color-orange);
+}
+
+.test-card {
+  background: var(--color-surface) !important;
+  border: 1px solid rgba(232,180,0,0.25) !important;
+  border-left: 4px solid var(--color-red) !important;
+}
+
+/* ---- CONTACTO — gradiente rojo intenso ---- */
+.contacto {
+  background: linear-gradient(160deg, #1a0a07 0%, #2a0e07 40%, #1a0a07 100%) !important;
+  border-top: 4px solid var(--color-mustard) !important;
+}
+
+/* ---- FOOTER — fondo con acento ---- */
+.footer {
+  background: var(--color-footer-bg) !important;
+  border-top: 4px solid var(--color-red) !important;
+}
+
+.footer-top {
+  background: linear-gradient(180deg, #150806 0%, #0d0603 100%);
+  padding: 5rem 8rem;
+}
+
+.footer-logo {
+  color: var(--color-mustard) !important;
+  font-size: 1.6rem !important;
+}
+
+.footer-brand a {
+  color: #25D366 !important;  /* verde WhatsApp */
+  font-weight: 600;
+}
+
+.footer-brand a:hover,
+.footer-brand a:focus-visible {
+  color: #1da851 !important;
+}
+
+.footer-hours h3,
+.footer-social h3 {
+  color: var(--color-mustard) !important;
+  border-bottom: 1px solid rgba(232,180,0,0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-social a {
+  color: var(--color-parchment) !important;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition), border-color var(--transition) !important;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  color: var(--color-mustard) !important;
+  border-bottom-color: var(--color-mustard);
+}
+
+.footer-bottom {
+  background: #080402;
+  border-top: 1px solid rgba(232,180,0,0.15);
+  color: var(--color-muted) !important;
+}
+
+/* ---- NAV — borde inferior rojo al hacer scroll ---- */
+.nav {
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition), background var(--transition) !important;
+}
+
+/* ---- HERO — overlay más cálido ---- */
+.hero-bg-img {
+  filter: brightness(0.3) saturate(1.2) !important;
+}
+
+/* ---- SECCIÓN LABEL — acento mostaza visible ---- */
+.section-label {
+  color: var(--color-mustard) !important;
+  border-left: 3px solid var(--color-red);
+  padding-left: 0.6rem;
+  display: inline-block;
+}
+
+/* ---- STATS ---- */
+.stats {
+  border-top: 2px solid rgba(232,180,0,0.3) !important;
+}
+
+.stat strong {
+  color: var(--color-mustard) !important;
+}
+
+.stat span {
+  color: var(--color-parchment) !important;
+}
+
+/* ---- BOTONES ---- */
+.btn-primary {
+  background: var(--color-red) !important;
+  border: 2px solid var(--color-red);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--color-orange) !important;
+  border-color: var(--color-orange);
+  box-shadow: 0 0 30px rgba(217,79,30,0.5) !important;
+}
+
+.btn-outline {
+  border: 2px solid var(--color-mustard) !important;
+  color: var(--color-mustard) !important;
+  font-family: var(--ff-title);
+  letter-spacing: 0.1em;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: var(--color-mustard) !important;
+  color: #111 !important;
+}
+
+/* ---- NOSOTROS BADGE ---- */
+.nosotros-badge {
+  background: var(--color-red) !important;
+  border: 3px solid var(--color-mustard) !important;
+}
+
+/* ---- MENU TAG ---- */
+.menu-tag {
+  background: var(--color-orange) !important;
+  color: var(--color-white) !important;
+}
+
+/* ---- CARTA DIVIDER ---- */
+.carta-divider {
+  color: var(--color-mustard) !important;
+}
+
+.carta-divider::before,
+.carta-divider::after {
+  background: rgba(232,180,0,0.4) !important;
+}
+
+/* ---- CARRUSEL DOTS Y BOTONES ---- */
+.dot-btn.active {
+  background: var(--color-mustard) !important;
+  box-shadow: 0 0 8px rgba(232,180,0,0.5);
+}
+
+/* ---- MAPA ---- */
+.mapa-wrapper {
+  border: 2px solid rgba(232,180,0,0.3) !important;
+}
+
+.mapa-caption {
+  background: var(--color-surface-2) !important;
+  color: var(--color-parchment) !important;
+  border-top: 2px solid var(--color-red);
+}
+
+/* ---- CONTACTO INFO ---- */
+.contacto-info p {
+  color: var(--color-parchment);
+}
+
+/* ---- NOSOTROS IMG border ---- */
+.nosotros-img {
+  border: 2px solid rgba(232,180,0,0.3) !important;
+  box-shadow: 8px 8px 0 rgba(192,39,26,0.3);
+}
+
+/* ---- BAND dot color ---- */
+.band .dot {
+  color: var(--color-mustard-lt) !important;
 }
