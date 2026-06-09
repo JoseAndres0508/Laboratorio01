@@ -1,5 +1,5 @@
 /* =============================================
-   EL RESCOLDO — script.js
+   DELIEMPANADAS — script.js
    ISW-521 Laboratorio #1 — UTN
 
    Funcionalidades:
@@ -19,53 +19,23 @@
    si recarga la página.
    ============================================= */
 
-const FORM_KEY = 'rescoldo_form_data';
+/* =============================================
+   Web Storage — localStorage
+   Guarda la última página visitada y el número
+   de visitas del usuario para personalizar
+   la experiencia en visitas futuras.
+   ============================================= */
+const VISIT_KEY = 'deliempanadas_visitas';
 
-const inputNombre    = document.getElementById('nombre');
-const inputTelefono  = document.getElementById('telefono');
-const inputFecha     = document.getElementById('fecha');
-const selectPersonas = document.getElementById('personas');
-
-function saveFormData() {
-  const data = {
-    nombre:   inputNombre.value,
-    telefono: inputTelefono.value,
-    fecha:    inputFecha.value,
-    personas: selectPersonas.value,
-  };
-  localStorage.setItem(FORM_KEY, JSON.stringify(data));
+function registrarVisita() {
+  const raw   = localStorage.getItem(VISIT_KEY);
+  const datos = raw ? JSON.parse(raw) : { visitas: 0, ultima: null };
+  datos.visitas++;
+  datos.ultima = new Date().toISOString();
+  localStorage.setItem(VISIT_KEY, JSON.stringify(datos));
 }
 
-function restoreFormData() {
-  const raw = localStorage.getItem(FORM_KEY);
-  if (!raw) return;
-  try {
-    const data = JSON.parse(raw);
-    if (data.nombre)   inputNombre.value    = data.nombre;
-    if (data.telefono) inputTelefono.value  = data.telefono;
-    if (data.fecha)    inputFecha.value     = data.fecha;
-    if (data.personas) selectPersonas.value = data.personas;
-  } catch (e) {
-    localStorage.removeItem(FORM_KEY);
-  }
-}
-
-restoreFormData();
-
-[inputNombre, inputTelefono, inputFecha, selectPersonas].forEach(el => {
-  el.addEventListener('input', saveFormData);
-  el.addEventListener('change', saveFormData);
-});
-
-const reservaForm = document.getElementById('reservaForm');
-const confirmDiv  = document.getElementById('confirm');
-
-reservaForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  localStorage.removeItem(FORM_KEY);
-  reservaForm.hidden = true;
-  confirmDiv.hidden  = false;
-});
+registrarVisita();
 
 /* =============================================
    1b. CARTA COMPLETA — localStorage
@@ -75,7 +45,7 @@ reservaForm.addEventListener('submit', (e) => {
    El estado se guarda en localStorage para persistir al recargar.
    ============================================= */
 
-const CARTA_KEY  = 'rescoldo_carta_abierta';
+const CARTA_KEY  = 'deliempanadas_carta_abierta';
 const menuFooter = document.getElementById('menuFooter');   // contenedor original
 const cartaPanel = document.getElementById('carta-completa');
 const btn        = document.getElementById('btnCarta');     // el único botón
@@ -171,11 +141,11 @@ const nav = document.querySelector('.nav');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 60) {
-    nav.style.background     = 'rgba(13,11,9,0.97)';
+    nav.style.background     = 'rgba(17,17,17,0.97)';
     nav.style.backdropFilter = 'blur(12px)';
-    nav.style.borderBottom   = '1px solid rgba(201,151,58,0.1)';
+    nav.style.borderBottom   = '1px solid rgba(232,180,0,0.12)';
   } else {
-    nav.style.background     = 'linear-gradient(to bottom, rgba(13,11,9,0.95), transparent)';
+    nav.style.background     = 'linear-gradient(to bottom, rgba(17,17,17,0.95), transparent)';
     nav.style.backdropFilter = 'blur(2px)';
     nav.style.borderBottom   = 'none';
   }
@@ -236,74 +206,112 @@ btnTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 /* =============================================
-   6. CARRUSEL DE GALERÍA
-   Navegación por botones, dots y teclado.
-   Accesible: aria-live, roles ARIA correctos.
+   6. CARRUSEL DE GALERÍA — Loop infinito
+   Técnica: clonar primer y último slide para
+   transición continua sin saltos visibles.
+   Accesible: aria-live, teclado, dots.
    ============================================= */
 
-const track     = document.getElementById('carruselTrack');
-const slides    = track ? Array.from(track.querySelectorAll('.carrusel-slide')) : [];
-const dots      = Array.from(document.querySelectorAll('.dot-btn'));
-const btnPrev   = document.getElementById('carruselPrev');
-const btnNext   = document.getElementById('carruselNext');
-let current     = 0;
-let autoTimer   = null;
+const track   = document.getElementById('carruselTrack');
+const dots    = Array.from(document.querySelectorAll('.dot-btn'));
+const btnPrev = document.getElementById('carruselPrev');
+const btnNext = document.getElementById('carruselNext');
+let autoTimer = null;
+let isTransitioning = false;
 
-function goTo(index) {
-  // Quitar activo del slide y dot actual
-  slides[current].classList.remove('active');
-  slides[current].setAttribute('aria-hidden', 'true');
-  dots[current].classList.remove('active');
-  dots[current].setAttribute('aria-selected', 'false');
+if (track) {
+  const realSlides = Array.from(track.querySelectorAll('.carrusel-slide'));
+  const total      = realSlides.length;
+  let current      = 1; // empieza en 1 porque el 0 es el clon del último
 
-  // Actualizar índice
-  current = (index + slides.length) % slides.length;
+  // Clonar primer y último slide para loop infinito
+  const firstClone = realSlides[0].cloneNode(true);
+  const lastClone  = realSlides[total - 1].cloneNode(true);
+  firstClone.setAttribute('aria-hidden', 'true');
+  lastClone.setAttribute('aria-hidden', 'true');
+  firstClone.classList.remove('active');
+  lastClone.classList.remove('active');
 
-  // Activar nuevo slide y dot
-  slides[current].classList.add('active');
-  slides[current].removeAttribute('aria-hidden');
-  dots[current].classList.add('active');
-  dots[current].setAttribute('aria-selected', 'true');
+  track.appendChild(firstClone);      // clon del primero al final
+  track.insertBefore(lastClone, realSlides[0]); // clon del último al inicio
 
-  // Mover el track
-  track.style.transform = `translateX(-${current * 100}%)`;
-}
+  // Posicionar sin animación en el primer slide real
+  track.style.transition = 'none';
+  track.style.transform  = `translateX(-${current * 100}%)`;
 
-function startAuto() {
-  autoTimer = setInterval(() => goTo(current + 1), 5000);
-}
+  function updateDots(index) {
+    // index real = current - 1 (descontamos el clon inicial)
+    const realIndex = ((index - 1) + total) % total;
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === realIndex);
+      d.setAttribute('aria-selected', i === realIndex ? 'true' : 'false');
+    });
+  }
 
-function stopAuto() {
-  clearInterval(autoTimer);
-}
+  function goTo(index, animate = true) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    current = index;
 
-if (slides.length > 0) {
-  // Inicializar aria-hidden en todos menos el primero
-  slides.forEach((s, i) => {
-    if (i !== 0) s.setAttribute('aria-hidden', 'true');
+    track.style.transition = animate ? 'transform 0.5s ease' : 'none';
+    track.style.transform  = `translateX(-${current * 100}%)`;
+    updateDots(current);
+  }
+
+  // Al terminar la transición, reposicionar sin animación si es un clon
+  track.addEventListener('transitionend', () => {
+    isTransitioning = false;
+    const allSlides = track.querySelectorAll('.carrusel-slide');
+    const totalWithClones = allSlides.length; // total + 2 clones
+
+    if (current === 0) {
+      // Estamos en el clon del último → saltar al último real
+      current = totalWithClones - 2;
+      track.style.transition = 'none';
+      track.style.transform  = `translateX(-${current * 100}%)`;
+      updateDots(current);
+    } else if (current === totalWithClones - 1) {
+      // Estamos en el clon del primero → saltar al primero real
+      current = 1;
+      track.style.transition = 'none';
+      track.style.transform  = `translateX(-${current * 100}%)`;
+      updateDots(current);
+    }
   });
 
-  // Botones anterior/siguiente
+  function startAuto() {
+    autoTimer = setInterval(() => {
+      const allSlides = track.querySelectorAll('.carrusel-slide');
+      goTo(current + 1);
+    }, 5000);
+  }
+
+  function stopAuto() { clearInterval(autoTimer); }
+
+  // Inicializar dots
+  updateDots(current);
+
+  // Botones
   btnPrev.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
   btnNext.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
 
   // Dots
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+    dot.addEventListener('click', () => { stopAuto(); goTo(i + 1); startAuto(); });
   });
 
-  // Navegación por teclado dentro del carrusel
+  // Teclado
   document.querySelector('.carrusel').addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft')  { stopAuto(); goTo(current - 1); startAuto(); }
     if (e.key === 'ArrowRight') { stopAuto(); goTo(current + 1); startAuto(); }
   });
 
-  // Pausa al hacer hover (accesibilidad — prefers-reduced-motion)
+  // Pausa en hover
   const carruselEl = document.querySelector('.carrusel');
   carruselEl.addEventListener('mouseenter', stopAuto);
   carruselEl.addEventListener('mouseleave', startAuto);
 
-  // Respetar preferencia de movimiento reducido
+  // Autoplay (respeta prefers-reduced-motion)
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     startAuto();
   }

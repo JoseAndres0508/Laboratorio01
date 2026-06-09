@@ -1293,3 +1293,170 @@ label {
   .carrusel-slide img { height: 220px; }
   .carrusel-btn { width: 32px; height: 32px; font-size: 1.2rem; }
 }
+
+/* =============================================
+   CONTACTO — reemplaza sección reservas
+   ============================================= */
+.contacto {
+  padding: 8rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(192,39,26,0.15), transparent 70%),
+    var(--color-bg);
+  border-top: 1px solid rgba(192,39,26,0.2);
+}
+
+.contacto-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contacto h2 {
+  font-family: var(--ff-title);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-white);
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.contacto h2 em {
+  font-family: var(--ff-display);
+  font-style: italic;
+  text-transform: none;
+  color: var(--color-mustard);
+  letter-spacing: 0;
+}
+
+.contacto-desc {
+  color: var(--color-parchment);
+  font-size: 1.05rem;
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.9;
+}
+
+/* Botón principal WhatsApp */
+.btn-whatsapp {
+  display: inline-flex;           /* Flexbox */
+  align-items: center;
+  gap: 0.8rem;
+  background: #25D366;
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 1.1rem 2.5rem;
+  font-family: var(--ff-title);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+  margin-bottom: 2.5rem;
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp:focus-visible {
+  background: #1da851;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.45);
+}
+
+.wa-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Info de contacto */
+.contacto-info {
+  font-style: normal;
+  margin-bottom: 2.5rem;
+  color: var(--color-parchment);
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.contacto-info a {
+  color: var(--color-mustard);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.contacto-info a:hover,
+.contacto-info a:focus-visible {
+  color: var(--color-mustard-lt);
+}
+
+/* Mapa */
+.mapa-wrapper {
+  margin-top: 1rem;
+  border: 1px solid rgba(232,180,0,0.2);
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.mapa-iframe {
+  display: block;
+  width: 100%;
+  height: 380px;
+  border: 0;
+  filter: grayscale(20%) contrast(1.05);
+}
+
+.mapa-caption {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  padding: 0.6rem 1rem;
+  background: var(--color-surface);
+  text-align: left;
+  font-family: var(--ff-title);
+  letter-spacing: 0.05em;
+}
+
+/* =============================================
+   BOTÓN FLOTANTE WHATSAPP
+   ============================================= */
+.btn-wa-float {
+  position: fixed;
+  bottom: 5.5rem;         /* encima del btn-top */
+  right: 2rem;
+  z-index: 200;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;           /* Flexbox */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-wa-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+
+.btn-wa-float:hover,
+.btn-wa-float:focus-visible {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+}
+
+/* Responsive contacto */
+@media (max-width: 1024px) {
+  .contacto { padding: 5rem 3rem; }
+}
+
+@media (max-width: 768px) {
+  .contacto { padding: 4rem 1.5rem; }
+  .mapa-iframe { height: 280px; }
+  .btn-wa-float { bottom: 5rem; right: 1.2rem; width: 46px; height: 46px; }
+  .btn-wa-float svg { width: 24px; height: 24px; }
+}
