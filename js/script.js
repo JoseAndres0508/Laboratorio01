@@ -235,3 +235,76 @@ window.addEventListener('scroll', () => {
 btnTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+/* =============================================
+   6. CARRUSEL DE GALERÍA
+   Navegación por botones, dots y teclado.
+   Accesible: aria-live, roles ARIA correctos.
+   ============================================= */
+
+const track     = document.getElementById('carruselTrack');
+const slides    = track ? Array.from(track.querySelectorAll('.carrusel-slide')) : [];
+const dots      = Array.from(document.querySelectorAll('.dot-btn'));
+const btnPrev   = document.getElementById('carruselPrev');
+const btnNext   = document.getElementById('carruselNext');
+let current     = 0;
+let autoTimer   = null;
+
+function goTo(index) {
+  // Quitar activo del slide y dot actual
+  slides[current].classList.remove('active');
+  slides[current].setAttribute('aria-hidden', 'true');
+  dots[current].classList.remove('active');
+  dots[current].setAttribute('aria-selected', 'false');
+
+  // Actualizar índice
+  current = (index + slides.length) % slides.length;
+
+  // Activar nuevo slide y dot
+  slides[current].classList.add('active');
+  slides[current].removeAttribute('aria-hidden');
+  dots[current].classList.add('active');
+  dots[current].setAttribute('aria-selected', 'true');
+
+  // Mover el track
+  track.style.transform = `translateX(-${current * 100}%)`;
+}
+
+function startAuto() {
+  autoTimer = setInterval(() => goTo(current + 1), 5000);
+}
+
+function stopAuto() {
+  clearInterval(autoTimer);
+}
+
+if (slides.length > 0) {
+  // Inicializar aria-hidden en todos menos el primero
+  slides.forEach((s, i) => {
+    if (i !== 0) s.setAttribute('aria-hidden', 'true');
+  });
+
+  // Botones anterior/siguiente
+  btnPrev.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
+  btnNext.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
+
+  // Dots
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+  });
+
+  // Navegación por teclado dentro del carrusel
+  document.querySelector('.carrusel').addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft')  { stopAuto(); goTo(current - 1); startAuto(); }
+    if (e.key === 'ArrowRight') { stopAuto(); goTo(current + 1); startAuto(); }
+  });
+
+  // Pausa al hacer hover (accesibilidad — prefers-reduced-motion)
+  const carruselEl = document.querySelector('.carrusel');
+  carruselEl.addEventListener('mouseenter', stopAuto);
+  carruselEl.addEventListener('mouseleave', startAuto);
+
+  // Respetar preferencia de movimiento reducido
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    startAuto();
+  }
+}
