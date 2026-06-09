@@ -1,11 +1,11 @@
 /* =============================================
-   EL RESCOLDO — styles.css
+   BRAZA BRAVA — styles.css
    ISW-521 Laboratorio #1 — UTN
-   Layout: Flexbox (nav, hero-actions, stats,
-           band, footer-top, test-track)
-           Grid (nosotros, menu-grid,
-                 gallery-grid, footer-top)
-   Breakpoints: 768px (tablet), 480px (móvil)
+   Identidad: Rojo · Mostaza · Naranja
+   Tipografía: Oswald (títulos) + Playfair Display (acentos) + Inter (cuerpo)
+   Layout: Flexbox (nav, hero-actions, stats, band, footer-top, test-track)
+           Grid   (nosotros, menu-grid, gallery-grid, form-row, footer-top)
+   Breakpoints: 1024px (tablet) · 768px (móvil) · 480px (móvil pequeño)
    ============================================= */
 
 /* ---- Reset y variables ---- */
@@ -18,39 +18,44 @@
 ul, ol { list-style: none; }
 
 :root {
-  /* Tema oscuro (default) */
-  --color-bg:         #0d0b09;
-  --color-surface:    #1a1714;
-  --color-ember:      #c0390a;
-  --color-flame:      #e8650a;
-  --color-gold:       #c9973a;
-  --color-cream:      #f5ede0;
-  --color-parchment:  #ede0cc;
-  --color-white:      #faf6f0;
-  --color-muted:      #9e8b77;
-  --color-footer-bg:  #080706;
+  /* ---- Negros y fondos ---- */
+  --color-bg:         #111111;
+  --color-surface:    #1A1A1A;
+  --color-surface-2:  #222222;
+  --color-footer-bg:  #0A0A0A;
 
-  --ff-display: 'Playfair Display', Georgia, serif;
-  --ff-body:    'Crimson Pro', Georgia, serif;
+  /* ---- Paleta principal ---- */
+  --color-red:        #C0271A;   /* rojo intenso */
+  --color-red-dark:   #8F1A10;   /* rojo oscuro hover */
+  --color-orange:     #D94F1E;   /* naranja intermedio */
+  --color-amber:      #E8821A;   /* naranja cálido */
+  --color-mustard:    #E8B400;   /* mostaza */
+  --color-mustard-lt: #F5D060;   /* mostaza claro — acentos */
+
+  /* ---- Textos ---- */
+  --color-white:      #FFFFFF;
+  --color-cream:      #F4EFE4;
+  --color-parchment:  #D9CDB8;
+  --color-muted:      #8A8078;
+
+  /* ---- Tipografías ---- */
+  --ff-display: 'Playfair Display', Georgia, serif;   /* acentos editoriales */
+  --ff-title:   'Oswald', 'Arial Narrow', sans-serif; /* títulos y nav */
+  --ff-body:    'Inter', system-ui, sans-serif;        /* cuerpo */
 
   --transition: 0.25s ease;
 }
 
-
-
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-cream);
   font-family: var(--ff-body);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.7;
   overflow-x: hidden;
-  transition: background-color var(--transition), color var(--transition);
 }
 
 /* ---- Utilidades de accesibilidad ---- */
@@ -104,7 +109,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1.2rem 4rem;
-  background: linear-gradient(to bottom, rgba(13,11,9,0.95), transparent);
+  background: linear-gradient(to bottom, rgba(17,17,17,0.95), transparent);
   backdrop-filter: blur(2px);
   transition: background var(--transition), border-color var(--transition);
 }
@@ -129,11 +134,12 @@ body {
 .nav-links a {
   text-decoration: none;
   color: var(--color-cream);
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
+  font-family: var(--ff-title);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   opacity: 0.85;
-  font-weight: 600;
+  font-weight: 500;
   transition: opacity var(--transition), color var(--transition);
 }
 
@@ -245,13 +251,15 @@ body {
 }
 
 .hero-title {
-  font-family: var(--ff-display);
-  font-size: clamp(3.5rem, 9vw, 8rem);
-  font-weight: 900;
+  font-family: var(--ff-title);
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  font-weight: 700;
   line-height: 1.0;
   margin-bottom: 1.5rem;
   color: var(--color-white);
-  text-shadow: 0 0 80px rgba(232,101,10,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 40px rgba(192,39,26,0.3);
 }
 
 .hero-title em {
@@ -261,11 +269,13 @@ body {
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
+  font-family: var(--ff-title);
+  font-size: 1.25rem;
   color: var(--color-parchment);
   opacity: 0.85;
   font-weight: 400;
-  max-width: 500px;
+  letter-spacing: 0.04em;
+  max-width: 520px;
   margin: 0 auto 2.5rem;
 }
 
@@ -284,9 +294,9 @@ body {
   color: var(--color-white);
   text-decoration: none;
   padding: 1rem 2.5rem;
-  font-family: var(--ff-body);
+  font-family: var(--ff-title);
   font-size: 1rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
   box-shadow: 0 0 30px rgba(192,57,10,0.4);
@@ -372,7 +382,7 @@ body {
 
 .nosotros-img {
   position: relative;
-  border: 1px solid rgba(201,151,58,0.3);
+  border: 1px solid rgba(232,180,0,0.25);
   padding: 1rem;
   max-width: 380px;
   margin: 0 auto;
@@ -399,9 +409,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: var(--ff-display);
+  font-family: var(--ff-title);
   font-size: 1.6rem;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1;
   color: var(--color-white);
   border: 3px solid var(--color-surface);
@@ -411,7 +421,7 @@ body {
   font-size: 0.65rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-family: var(--ff-body);
+  font-family: var(--ff-title);
 }
 
 .section-label {
@@ -424,11 +434,14 @@ body {
 }
 
 .nosotros-text h2 {
-  font-family: var(--ff-display);
-  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-family: var(--ff-title);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 1.5rem;
   color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .nosotros-text h2 em {
@@ -440,8 +453,9 @@ body {
   color: var(--color-parchment);
   opacity: 0.9;
   margin-bottom: 1rem;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 400;
+  line-height: 1.75;
 }
 
 /* stats: Flexbox */
@@ -450,7 +464,7 @@ body {
   gap: 2rem;
   margin-top: 2.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(201,151,58,0.2);
+  border-top: 1px solid rgba(232,180,0,0.15);
 }
 
 .stat strong {
@@ -463,8 +477,9 @@ body {
 }
 
 .stat span {
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
+  font-family: var(--ff-title);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-muted);
 }
@@ -482,11 +497,14 @@ body {
 }
 
 .menu-header h2 {
-  font-family: var(--ff-display);
-  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-family: var(--ff-title);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
   line-height: 1.1;
   color: var(--color-white);
   margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .menu-header h2 em {
@@ -503,7 +521,7 @@ body {
 
 .menu-card {
   background: var(--color-surface);
-  border: 1px solid rgba(201,151,58,0.1);
+  border: 1px solid rgba(232,180,0,0.1);
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition);
 }
@@ -538,10 +556,13 @@ body {
 }
 
 .menu-info h3 {
-  font-family: var(--ff-display);
-  font-size: 1.3rem;
+  font-family: var(--ff-title);
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--color-white);
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .menu-info p {
@@ -596,7 +617,7 @@ body {
   top: 50%;
   width: 30%;
   height: 1px;
-  background: rgba(201,151,58,0.3);
+  background: rgba(232,180,0,0.25);
 }
 
 .carta-divider::before { left: 0; }
@@ -614,7 +635,7 @@ body {
   text-align: center;
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(201,151,58,0.15);
+  border-top: 1px solid rgba(232,180,0,0.12);
 }
 
 /* Imágenes de los cortes adicionales */
@@ -622,7 +643,7 @@ body {
 
 .btn-outline {
   display: inline-block;
-  border: 1px solid rgba(201,151,58,0.5);
+  border: 1px solid rgba(232,180,0,0.4);
   color: var(--color-gold);
   text-decoration: none;
   padding: 0.9rem 2.5rem;
@@ -647,11 +668,14 @@ body {
 }
 
 .galeria h2 {
-  font-family: var(--ff-display);
-  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-family: var(--ff-title);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
   line-height: 1.1;
   color: var(--color-white);
   margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .galeria h2 em { font-style: italic; color: var(--color-flame); }
@@ -694,12 +718,12 @@ body {
 .g-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(13,11,9,0.2);
+  background: rgba(17,17,17,0.2);
   transition: background var(--transition);
   pointer-events: none;
 }
 
-.g-item:hover .g-overlay { background: rgba(13,11,9,0.0); }
+.g-item:hover .g-overlay { background: rgba(17,17,17,0.0); }
 
 /* =============================================
    TESTIMONIOS — Flexbox
@@ -722,7 +746,7 @@ body {
 
 .test-card {
   flex: 0 0 380px;
-  border: 1px solid rgba(201,151,58,0.2);
+  border: 1px solid rgba(232,180,0,0.15);
   padding: 2.5rem;
   background: var(--color-surface);
 }
@@ -730,11 +754,11 @@ body {
 .test-card blockquote p {
   font-family: var(--ff-display);
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--color-parchment);
   margin-bottom: 1rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .test-card cite {
@@ -751,9 +775,9 @@ body {
 .reservas {
   padding: 8rem;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(192,57,10,0.2), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(192,39,26,0.2), transparent 70%),
     var(--color-bg);
-  border-top: 1px solid rgba(192,57,10,0.15);
+  border-top: 1px solid rgba(192,39,26,0.2);
 }
 
 .reservas-inner {
@@ -765,11 +789,14 @@ body {
 .section-label.light { color: var(--color-gold); }
 
 .reservas h2 {
-  font-family: var(--ff-display);
-  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-family: var(--ff-title);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
   line-height: 1.1;
   color: var(--color-white);
   margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .reservas h2 em { font-style: italic; color: var(--color-flame); }
@@ -811,7 +838,7 @@ label {
 .reserva-form select,
 .reserva-form textarea {
   background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(201,151,58,0.25);
+  border: 1px solid rgba(232,180,0,0.2);
   color: var(--color-cream);
   padding: 0.9rem 1.1rem;
   font-family: var(--ff-body);
@@ -825,7 +852,7 @@ label {
 .reserva-form select:focus,
 .reserva-form textarea:focus {
   border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(201,151,58,0.2);
+  box-shadow: 0 0 0 3px rgba(232,180,0,0.2);
 }
 
 .reserva-form textarea { resize: vertical; }
@@ -836,13 +863,13 @@ label {
   color: var(--color-white);
   border: none;
   padding: 1.2rem 3rem;
-  font-family: var(--ff-body);
+  font-family: var(--ff-title);
   font-size: 1.05rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
   transition: background var(--transition), box-shadow var(--transition);
-  box-shadow: 0 0 30px rgba(192,57,10,0.3);
+  box-shadow: 0 0 20px rgba(192,39,26,0.25);
   margin-top: 0.5rem;
   width: 100%;
 }
@@ -868,7 +895,7 @@ label {
    ============================================= */
 .footer {
   background: var(--color-footer-bg);
-  border-top: 1px solid rgba(201,151,58,0.1);
+  border-top: 1px solid rgba(232,180,0,0.1);
 }
 
 /* footer-top: Grid */
@@ -909,12 +936,13 @@ label {
 
 .footer-hours h3,
 .footer-social h3 {
-  font-family: var(--ff-display);
+  font-family: var(--ff-title);
   font-size: 1rem;
   color: var(--color-white);
   margin-bottom: 1rem;
   letter-spacing: 0.1em;
-  font-weight: 700;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .footer-hours p {
@@ -945,7 +973,7 @@ label {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(201,151,58,0.1);
+  border-top: 1px solid rgba(232,180,0,0.1);
   padding: 1.5rem 8rem;
   text-align: center;
   color: rgba(158,139,119,0.5);
@@ -1032,10 +1060,10 @@ label {
     position: absolute;
     top: 100%;
     left: 0; right: 0;
-    background: rgba(13,11,9,0.97);
+    background: rgba(17,17,17,0.97);
     padding: 1.5rem 2rem;
     gap: 1rem;
-    border-top: 1px solid rgba(201,151,58,0.2);
+    border-top: 1px solid rgba(232,180,0,0.15);
   }
 
   .nav-links.open {
