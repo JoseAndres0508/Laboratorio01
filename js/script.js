@@ -141,13 +141,13 @@ const nav = document.querySelector('.nav');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 60) {
-    nav.style.background     = 'rgba(17,17,17,0.97)';
+    nav.style.background     = '#B71C1C';
     nav.style.backdropFilter = 'blur(12px)';
-    nav.style.borderBottom   = '1px solid rgba(232,180,0,0.12)';
+    nav.style.borderBottom   = '3px solid #F9A825';
   } else {
-    nav.style.background     = 'linear-gradient(to bottom, rgba(17,17,17,0.95), transparent)';
+    nav.style.background     = '#D32F2F';
     nav.style.backdropFilter = 'blur(2px)';
-    nav.style.borderBottom   = 'none';
+    nav.style.borderBottom   = '3px solid #F9A825';
   }
 }, { passive: true });
 
