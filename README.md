@@ -3,13 +3,14 @@
 **Curso:** ISW-521 — Programación en Ambiente Web I  
 **Universidad:** Universidad Técnica Nacional (UTN) — Sede San Carlos  
 **Docente:** Bryan Miguel Chaves Salas  
+**Estudiante:** José Andrés Ortiz Marín  
 **Cuatrimestre:** 2026 — II  
 
 ---
 
 ## Descripción
 
-Landing page responsiva desarrollada para **DeliEmpanadas**, negocio de comida ubicado en Ciudad Quesada, San Carlos, Costa Rica. El sitio presenta la propuesta del negocio, su historia, menú completo con 12 productos, galería fotográfica con carrusel y una sección de contacto con integración directa a WhatsApp y mapa de Google Maps.
+Landing page responsiva desarrollada para **DeliEmpanadas**, negocio de comida ubicado en Ciudad Quesada, San Carlos, Costa Rica. El sitio presenta la propuesta del negocio, su historia, menú completo de productos, galería fotográfica con carrusel y una sección de contacto con integración directa a WhatsApp y mapa de Google Maps.
 
 El proyecto fue construido íntegramente con HTML5 semántico, CSS3 nativo y JavaScript vanilla, sin el uso de frameworks externos ni librerías de terceros.
 
@@ -29,8 +30,8 @@ El proyecto fue construido íntegramente con HTML5 semántico, CSS3 nativo y Jav
 Estructura construida exclusivamente con etiquetas semánticas. Se evitó el uso de `<div>` innecesarios y se aplicaron atributos ARIA en todos los elementos interactivos.
 
 ### CSS Grid y Flexbox
-- **Flexbox:** navegación, hero actions, estadísticas, banda decorativa, testimonios, footer social, botones de accesibilidad y controles del nav
-- **CSS Grid:** sección nosotros, grid del menú, carta completa, formulario y footer
+- **Flexbox:** navegación, hero actions, estadísticas, banda decorativa, testimonios, footer social y panel de accesibilidad
+- **CSS Grid:** sección nosotros, grid del menú, formulario y footer
 
 ### Responsividad
 Tres breakpoints definidos con `@media`:
@@ -44,25 +45,25 @@ Tres breakpoints definidos con `@media`:
 - Indicador `:focus-visible` visible en todos los elementos
 - Contraste de texto sobre fondo cumple relación mínima 4.5:1
 - Navegación completa por teclado (Tab, Enter, flechas en carrusel)
-- Botones de tamaño de fuente (A- A A+) para usuarios con baja visión
+- Panel flotante con botones de tamaño de fuente (A- A A+) para usuarios con baja visión
 - Soporte para `prefers-reduced-motion`
 
 ### Web Storage (localStorage)
 Tres usos distintos de `localStorage`:
 1. **Tema claro/oscuro** — guarda y restaura la preferencia del usuario al recargar
 2. **Tamaño de fuente** — guarda el nivel de texto elegido (pequeño, normal, grande)
-3. **Estado de la carta** — recuerda si el menú completo estaba expandido o cerrado
+3. **Contador de visitas** — registra número de visitas y fecha de última visita
 
 ---
 
 ## Funcionalidades destacadas
 
-- Carrusel de galería con loop infinito, autoplay, navegación por teclado y dots indicadores
-- Menú expandible con 12 productos — botón que se mueve dinámicamente al abrirse y cerrarse
+- Carrusel de galería con loop infinito, autoplay y navegación por teclado
+- Panel flotante de accesibilidad con control de tamaño de texto y modo claro/oscuro
 - Botón flotante de WhatsApp para pedidos directos
 - Botón flotante de regreso al inicio
-- Modo oscuro completo activable desde el nav
-- Menú hamburguesa en todas las pantallas (desktop y móvil)
+- Menú hamburguesa en móvil
+- Nav con efecto shrink proporcional al hacer scroll
 - Mapa de Google Maps embebido con ubicación exacta del negocio
 - Scroll reveal con `IntersectionObserver`
 
@@ -75,9 +76,9 @@ lab01/
 index.html
 README.md
 css/
-  styles.css
+  -- styles.css
 js/
-  script.js
+  -- script.js
 ```
 
 ---
@@ -94,10 +95,3 @@ No requiere instalación ni servidor. Para visualizar el proyecto localmente:
 
 El proyecto también está disponible en línea vía GitHub Pages:  
 🔗 **https://joseandres0508.github.io/Laboratorio01/**
-
----
-
-## Integrantes
-
-- [Nombre completo — Integrante 1]
-- [Nombre completo — Integrante 2]
