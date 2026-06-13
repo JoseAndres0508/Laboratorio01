@@ -25,6 +25,44 @@
       <li><a href="#galeria">Galería</a></li>
       <li><a href="#contacto" class="nav-cta">Contacto</a></li>
     </ul>
+
+    <!-- Controles de accesibilidad -->
+    <div class="nav-controls" role="group" aria-label="Controles de accesibilidad">
+
+      <!-- Tamaño de fuente -->
+      <div class="font-controls" role="group" aria-label="Tamaño de texto">
+        <button
+          class="font-btn"
+          id="fontDecrease"
+          aria-label="Reducir tamaño de texto"
+          title="Texto más pequeño"
+        >A-</button>
+        <button
+          class="font-btn font-reset"
+          id="fontReset"
+          aria-label="Restablecer tamaño de texto"
+          title="Tamaño normal"
+        >A</button>
+        <button
+          class="font-btn"
+          id="fontIncrease"
+          aria-label="Aumentar tamaño de texto"
+          title="Texto más grande"
+        >A+</button>
+      </div>
+
+      <!-- Modo claro / oscuro -->
+      <button
+        class="theme-btn"
+        id="themeToggle"
+        aria-pressed="false"
+        aria-label="Activar modo oscuro"
+        title="Cambiar tema"
+      >
+        <span class="theme-icon" aria-hidden="true">🌙</span>
+      </button>
+
+    </div>
   </nav>
 
   <main id="contenido-principal">

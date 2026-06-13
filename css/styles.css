@@ -1266,3 +1266,163 @@ label {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =============================================
+   MODO OSCURO — variables
+   Se activa con body.dark-mode
+   ============================================= */
+body.dark-mode {
+  --white:      #1A1A1A;
+  --off-white:  #222222;
+  --light-gray: #2A2A2A;
+  --dark:       #F5F5F5;
+  --dark-2:     #E0E0E0;
+  --muted:      #BDBDBD;
+  background: #1A1A1A;
+  color: #F5F5F5;
+}
+
+/* Ajustes específicos modo oscuro */
+body.dark-mode .menu-card,
+body.dark-mode .test-card {
+  background: #2D2D2D;
+  border-color: rgba(253,216,53,0.2);
+}
+
+body.dark-mode .menu-card:hover,
+body.dark-mode .menu-card:focus-within {
+  border-color: var(--orange);
+}
+
+body.dark-mode .menu-info h3,
+body.dark-mode .nosotros-text h2,
+body.dark-mode .menu-header h2,
+body.dark-mode .galeria h2,
+body.dark-mode .test-card blockquote p {
+  color: #F5F5F5;
+}
+
+body.dark-mode .menu-info p,
+body.dark-mode .nosotros-text p {
+  color: #BDBDBD;
+}
+
+body.dark-mode .nosotros {
+  background: #222222;
+}
+
+body.dark-mode .menu {
+  background: #1E1E1E;
+}
+
+body.dark-mode .galeria {
+  background: #242424;
+}
+
+body.dark-mode .testimonios {
+  background: #1E1E1E;
+}
+
+body.dark-mode .carta-completa {
+  background: #222222;
+}
+
+body.dark-mode .reserva-form input,
+body.dark-mode .reserva-form select,
+body.dark-mode .reserva-form textarea {
+  background: #2D2D2D;
+  border-color: #444;
+  color: #F5F5F5;
+}
+
+body.dark-mode label {
+  color: #E0E0E0;
+}
+
+body.dark-mode .carrusel-dots {
+  background: #2A2A2A;
+}
+
+body.dark-mode .mapa-caption {
+  background: #1A1A1A;
+}
+
+/* =============================================
+   CONTROLES DE ACCESIBILIDAD EN NAV
+   ============================================= */
+.nav-controls {
+  display: flex;             /* Flexbox */
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+/* Controles de tamaño de fuente */
+.font-controls {
+  display: flex;             /* Flexbox */
+  align-items: center;
+  gap: 0.2rem;
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+}
+
+.font-btn {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: var(--ff-title);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  transition: background var(--t), color var(--t);
+  line-height: 1;
+}
+
+.font-btn:first-child { font-size: 0.75rem; }
+.font-reset           { font-size: 0.9rem; }
+.font-btn:last-child  { font-size: 1.05rem; }
+
+.font-btn:hover,
+.font-btn:focus-visible {
+  background: var(--yellow);
+  color: var(--dark);
+}
+
+/* Botón tema claro/oscuro */
+.theme-btn {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;             /* Flexbox */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background var(--t), transform var(--t);
+  flex-shrink: 0;
+}
+
+.theme-btn:hover,
+.theme-btn:focus-visible {
+  background: var(--yellow);
+  transform: scale(1.1);
+}
+
+/* Responsive — controles en móvil */
+@media (max-width: 768px) {
+  .nav-controls {
+    margin-left: auto;
+    margin-right: 0.5rem;
+  }
+  .font-controls {
+    padding: 0.15rem 0.3rem;
+    gap: 0.1rem;
+  }
+  .font-btn { padding: 0.15rem 0.3rem; }
+  .theme-btn { width: 30px; height: 30px; font-size: 0.9rem; }
+}

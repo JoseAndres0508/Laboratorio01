@@ -316,3 +316,85 @@ if (track) {
     startAuto();
   }
 }
+
+/* =============================================
+   7. MODO CLARO / OSCURO — localStorage
+   Guarda la preferencia del usuario y la aplica
+   al recargar la página automáticamente.
+   ============================================= */
+
+const THEME_KEY    = 'deliempanadas_tema';
+const themeToggle  = document.getElementById('themeToggle');
+const themeIcon    = document.querySelector('.theme-icon');
+
+function applyTheme(mode) {
+  if (mode === 'dark') {
+    document.body.classList.add('dark-mode');
+    themeIcon.textContent = '☀️';
+    themeToggle.setAttribute('aria-pressed', 'true');
+    themeToggle.setAttribute('aria-label', 'Activar modo claro');
+  } else {
+    document.body.classList.remove('dark-mode');
+    themeIcon.textContent = '🌙';
+    themeToggle.setAttribute('aria-pressed', 'false');
+    themeToggle.setAttribute('aria-label', 'Activar modo oscuro');
+  }
+}
+
+// Restaurar tema guardado al cargar
+const savedTheme = localStorage.getItem(THEME_KEY);
+if (savedTheme) {
+  applyTheme(savedTheme);
+} else {
+  // Respetar preferencia del sistema operativo
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(prefersDark ? 'dark' : 'light');
+}
+
+themeToggle.addEventListener('click', () => {
+  const isDark = document.body.classList.contains('dark-mode');
+  const newTheme = isDark ? 'light' : 'dark';
+  applyTheme(newTheme);
+  localStorage.setItem(THEME_KEY, newTheme); // PERSISTENCIA
+});
+
+/* =============================================
+   8. TAMAÑO DE FUENTE — localStorage
+   3 niveles: pequeño (14px), normal (16px),
+   grande (19px). Escala todo el sitio via rem.
+   ============================================= */
+
+const FONT_KEY     = 'deliempanadas_fuente';
+const FONT_SIZES   = [14, 16, 19]; // px — pequeño, normal, grande
+const FONT_DEFAULT = 1;            // índice del tamaño normal
+let fontIndex      = FONT_DEFAULT;
+
+const btnDecrease = document.getElementById('fontDecrease');
+const btnReset    = document.getElementById('fontReset');
+const btnIncrease = document.getElementById('fontIncrease');
+
+function applyFontSize(index) {
+  fontIndex = Math.max(0, Math.min(2, index));
+  document.documentElement.style.fontSize = FONT_SIZES[fontIndex] + 'px';
+
+  // Actualizar estado de botones
+  btnDecrease.disabled = fontIndex === 0;
+  btnIncrease.disabled = fontIndex === 2;
+  btnDecrease.style.opacity = fontIndex === 0 ? '0.4' : '1';
+  btnIncrease.style.opacity = fontIndex === 2 ? '0.4' : '1';
+
+  // Actualizar aria-pressed en botón activo
+  [btnDecrease, btnReset, btnIncrease].forEach((btn, i) => {
+    btn.setAttribute('aria-pressed', i === fontIndex ? 'true' : 'false');
+  });
+
+  localStorage.setItem(FONT_KEY, fontIndex); // PERSISTENCIA
+}
+
+// Restaurar tamaño guardado al cargar
+const savedFont = localStorage.getItem(FONT_KEY);
+applyFontSize(savedFont !== null ? parseInt(savedFont) : FONT_DEFAULT);
+
+btnDecrease.addEventListener('click', () => applyFontSize(fontIndex - 1));
+btnReset.addEventListener('click',    () => applyFontSize(FONT_DEFAULT));
+btnIncrease.addEventListener('click', () => applyFontSize(fontIndex + 1));
