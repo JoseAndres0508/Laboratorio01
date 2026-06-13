@@ -1498,3 +1498,40 @@ body.dark-mode .mapa-caption {
   font-size: 1rem !important;
   padding: 0.2rem 0.5rem !important;
 }
+
+/* =============================================
+   MODO OSCURO — correcciones específicas
+   ============================================= */
+
+/* Hero — overlay más intenso para que el texto se lea */
+body.dark-mode .hero::after {
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.75) 0%,
+    rgba(180,0,0,0.5) 50%,
+    rgba(0,0,0,0.6) 100%
+  ) !important;
+}
+
+body.dark-mode .hero-bg-img {
+  filter: brightness(0.25) saturate(0.9) !important;
+}
+
+body.dark-mode .hero-title {
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.9) !important;
+}
+
+body.dark-mode .hero-subtitle {
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.8) !important;
+}
+
+/* Band — fondo naranja oscuro en dark mode para que las letras blancas se lean */
+body.dark-mode .band {
+  background: var(--orange) !important;
+  border-top-color: var(--red) !important;
+  border-bottom-color: var(--red) !important;
+}
+
+body.dark-mode .band .dot {
+  color: var(--yellow) !important;
+}
