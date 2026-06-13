@@ -1522,7 +1522,9 @@ body.dark-mode .hero-title {
 }
 
 body.dark-mode .hero-subtitle {
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.8) !important;
+  color: var(--yellow) !important;
+  opacity: 1 !important;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
 }
 
 /* Band — fondo naranja oscuro en dark mode para que las letras blancas se lean */
