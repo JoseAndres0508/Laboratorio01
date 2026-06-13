@@ -1566,6 +1566,11 @@ body.dark-mode .band .dot {
   border-radius: 2px;
 }
 
+.menu-info .menu-tag {
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
 body.dark-mode .menu-variant {
   background: var(--orange);
 }
