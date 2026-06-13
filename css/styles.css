@@ -1655,3 +1655,32 @@ body.dark-mode .menu-variant {
 .menu-grid-3 li:nth-child(8) {
   grid-column: 2 / 3;
 }
+
+/* =============================================
+   FIX — móvil: todos los cards visibles
+   ============================================= */
+@media (max-width: 768px) {
+  .menu-grid-3 li:nth-child(7),
+  .menu-grid-3 li:nth-child(8) {
+    grid-column: auto !important;
+  }
+}
+
+/* =============================================
+   PRECIO + VARIANTE en la misma línea
+   ============================================= */
+.price-row {
+  display: flex;             /* Flexbox */
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.price-row .menu-price {
+  margin: 0;
+}
+
+.price-row .menu-variant {
+  margin: 0;
+}
