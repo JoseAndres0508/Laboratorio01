@@ -3,15 +3,13 @@
    ISW-521 Laboratorio #1 — UTN
 
    Funcionalidades:
-   1. Web Storage — localStorage: contador de visitas
-   2. Menú hamburguesa (móvil)
-   3. Nav scroll effect
-   4. Scroll reveal con IntersectionObserver
-   5. Botón flotante — volver al inicio
-   6. Carrusel de galería — loop infinito
-   7. Modo claro / oscuro — localStorage
-   8. Tamaño de fuente — localStorage
-   9. Panel flotante de accesibilidad
+   1. Web Storage — localStorage:
+      a) Guardado y recuperación de datos del formulario de reserva
+      b) Persistencia del estado abierto/cerrado de la carta completa
+   2. Carta completa — toggle expandible
+   3. Menú hamburguesa (móvil)
+   4. Nav scroll effect
+   5. Scroll reveal con IntersectionObserver
    ============================================= */
 
 /* =============================================
@@ -75,7 +73,13 @@ navMenu.querySelectorAll('a').forEach(link => {
 const nav = document.querySelector('.nav');
 
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('nav-shrink', window.scrollY > 80);
+  if (window.scrollY > 80) {
+    nav.classList.add('nav-shrink');
+    nav.style.background = '#B71C1C';
+  } else {
+    nav.classList.remove('nav-shrink');
+    nav.style.background = '#D32F2F';
+  }
 }, { passive: true });
 
 /* =============================================
@@ -161,11 +165,10 @@ if (track) {
   track.style.transform  = `translateX(-${current * 100}%)`;
 
   function updateDots(index) {
-    // index real = current - 1 (descontamos el clon inicial)
     const realIndex = ((index - 1) + total) % total;
     dots.forEach((d, i) => {
       d.classList.toggle('active', i === realIndex);
-      d.setAttribute('aria-selected', i === realIndex ? 'true' : 'false');
+      d.setAttribute('aria-current', i === realIndex ? 'true' : 'false');
     });
   }
 
@@ -201,7 +204,10 @@ if (track) {
   });
 
   function startAuto() {
-    autoTimer = setInterval(() => goTo(current + 1), 5000);
+    autoTimer = setInterval(() => {
+      const allSlides = track.querySelectorAll('.carrusel-slide');
+      goTo(current + 1);
+    }, 5000);
   }
 
   function stopAuto() { clearInterval(autoTimer); }
@@ -320,6 +326,9 @@ btnIncrease.addEventListener('click', () => applyFontSize(fontIndex + 1));
 /* =============================================
    9. PANEL FLOTANTE DE ACCESIBILIDAD
    Abrir/cerrar con el botón Aa
+   ============================================= */
+/* =============================================
+   9. PANEL FLOTANTE DE ACCESIBILIDAD
    ============================================= */
 const accToggle   = document.getElementById('accesibilidadToggle');
 const accControls = document.getElementById('accesibilidadControls');

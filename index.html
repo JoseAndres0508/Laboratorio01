@@ -80,7 +80,7 @@
           alt="Empanadas recién horneadas listas para servir en DeliEmpanadas"
           class="nosotros-foto"
         />
-        <figcaption class="nosotros-badge" aria-label="Más de 10 años de experiencia">
+        <figcaption class="nosotros-badge" role="img" aria-label="Más de 10 años de experiencia">
           +10<br /><span>años</span>
         </figcaption>
       </figure>
@@ -261,9 +261,9 @@
         >&#8249;</button>
 
         <!-- Track de slides -->
-        <ol class="carrusel-track" id="carruselTrack">
+        <div class="carrusel-track" id="carruselTrack">
 
-          <li class="carrusel-slide active" role="group" aria-roledescription="diapositiva" aria-label="1 de 6">
+          <div class="carrusel-slide active" role="region" aria-roledescription="diapositiva" aria-label="1 de 6">
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1000&q=80"
@@ -271,9 +271,9 @@
               />
               <figcaption class="carrusel-caption">Empanadas recién horneadas</figcaption>
             </figure>
-          </li>
+          </div>
 
-          <li class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 6">
+          <div class="carrusel-slide" role="region" aria-roledescription="diapositiva" aria-label="2 de 6">
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1000&q=80"
@@ -281,9 +281,9 @@
               />
               <figcaption class="carrusel-caption">Burger Clásica con queso cheddar</figcaption>
             </figure>
-          </li>
+          </div>
 
-          <li class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 6">
+          <div class="carrusel-slide" role="region" aria-roledescription="diapositiva" aria-label="3 de 6">
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?w=1000&q=80"
@@ -291,9 +291,9 @@
               />
               <figcaption class="carrusel-caption">Sándwich Artesanal del Día</figcaption>
             </figure>
-          </li>
+          </div>
 
-          <li class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 6">
+          <div class="carrusel-slide" role="region" aria-roledescription="diapositiva" aria-label="4 de 6">
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=1000&q=80"
@@ -301,9 +301,9 @@
               />
               <figcaption class="carrusel-caption">Empanada de Pollo — relleno cremoso</figcaption>
             </figure>
-          </li>
+          </div>
 
-          <li class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="5 de 6">
+          <div class="carrusel-slide" role="region" aria-roledescription="diapositiva" aria-label="5 de 6">
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=1000&q=80"
@@ -311,9 +311,9 @@
               />
               <figcaption class="carrusel-caption">Burger Doble — para los hambrientos</figcaption>
             </figure>
-          </li>
+          </div>
 
-          <li class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="6 de 6">
+          <div class="carrusel-slide" role="region" aria-roledescription="diapositiva" aria-label="6 de 6">
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1000&q=80"
@@ -321,9 +321,9 @@
               />
               <figcaption class="carrusel-caption">Combo Deli x3 — el favorito</figcaption>
             </figure>
-          </li>
+          </div>
 
-        </ol>
+        </div>
 
         <!-- Botón siguiente -->
         <button
@@ -333,14 +333,14 @@
         >&#8250;</button>
 
         <!-- Indicadores de posición -->
-        <ol class="carrusel-dots" aria-label="Seleccionar diapositiva" role="tablist">
-          <li role="presentation"><button class="dot-btn active" role="tab" aria-selected="true"  aria-label="Diapositiva 1"></button></li>
-          <li role="presentation"><button class="dot-btn"        role="tab" aria-selected="false" aria-label="Diapositiva 2"></button></li>
-          <li role="presentation"><button class="dot-btn"        role="tab" aria-selected="false" aria-label="Diapositiva 3"></button></li>
-          <li role="presentation"><button class="dot-btn"        role="tab" aria-selected="false" aria-label="Diapositiva 4"></button></li>
-          <li role="presentation"><button class="dot-btn"        role="tab" aria-selected="false" aria-label="Diapositiva 5"></button></li>
-          <li role="presentation"><button class="dot-btn"        role="tab" aria-selected="false" aria-label="Diapositiva 6"></button></li>
-        </ol>
+        <div class="carrusel-dots" aria-label="Indicadores de diapositiva" role="group">
+          <button class="dot-btn active" aria-label="Ir a diapositiva 1" aria-current="true"></button>
+          <button class="dot-btn" aria-label="Ir a diapositiva 2" aria-current="false"></button>
+          <button class="dot-btn" aria-label="Ir a diapositiva 3" aria-current="false"></button>
+          <button class="dot-btn" aria-label="Ir a diapositiva 4" aria-current="false"></button>
+          <button class="dot-btn" aria-label="Ir a diapositiva 5" aria-current="false"></button>
+          <button class="dot-btn" aria-label="Ir a diapositiva 6" aria-current="false"></button>
+        </div>
       </div>
     </section>
 
@@ -401,7 +401,6 @@
             class="mapa-iframe"
             title="Ubicación de DeliEmpanadas en Ciudad Quesada, San Carlos"
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d491.3!2d-84.434473!3d10.336840!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDIwJzEyLjYiTiA4NMKwMjYnMDQuMSJX!5e0!3m2!1ses!2scr!4v1"
-            width="100%"
             height="380"
             style="border:0;"
             allowfullscreen=""
