@@ -3,30 +3,101 @@
 **Curso:** ISW-521 — Programación en Ambiente Web I  
 **Universidad:** Universidad Técnica Nacional (UTN) — Sede San Carlos  
 **Docente:** Bryan Miguel Chaves Salas  
-**Autor:** Jose Andrés Ortiz Marín
 **Cuatrimestre:** 2026 — II  
 
 ---
 
 ## Descripción
 
-Landing page responsiva desarrollada para un restaurante de carnes a la parrilla. El sitio presenta la propuesta del negocio, su historia, carta de cortes, galería y un formulario de reserva de mesas.
+Landing page responsiva desarrollada para **DeliEmpanadas**, negocio de comida ubicado en Ciudad Quesada, San Carlos, Costa Rica. El sitio presenta la propuesta del negocio, su historia, menú completo con 12 productos, galería fotográfica con carrusel y una sección de contacto con integración directa a WhatsApp y mapa de Google Maps.
 
-El proyecto fue construido con HTML5 semántico, CSS3 nativo y JavaScript vanilla, sin el uso de frameworks externos.
+El proyecto fue construido íntegramente con HTML5 semántico, CSS3 nativo y JavaScript vanilla, sin el uso de frameworks externos ni librerías de terceros.
 
 ---
 
 ## Tecnologías utilizadas
 
-- HTML5 semántico
-- CSS3 (Flexbox, CSS Grid, Media Queries)
-- JavaScript nativo (Web Storage API)
+- **HTML5 semántico** — uso de `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<figure>`, `<address>`, `<footer>` y atributos ARIA
+- **CSS3 nativo** — Flexbox, CSS Grid, Media Queries, variables CSS, animaciones
+- **JavaScript vanilla** — Web Storage API, IntersectionObserver, manipulación del DOM
+
+---
+
+## Requerimientos técnicos implementados
+
+### HTML5 Semántico
+Estructura construida exclusivamente con etiquetas semánticas. Se evitó el uso de `<div>` innecesarios y se aplicaron atributos ARIA en todos los elementos interactivos.
+
+### CSS Grid y Flexbox
+- **Flexbox:** navegación, hero actions, estadísticas, banda decorativa, testimonios, footer social, botones de accesibilidad y controles del nav
+- **CSS Grid:** sección nosotros, grid del menú, carta completa, formulario y footer
+
+### Responsividad
+Tres breakpoints definidos con `@media`:
+- `1024px` — tablet
+- `768px` — móvil
+- `480px` — móvil pequeño
+
+### Accesibilidad WCAG 2.1
+- Atributos `aria-label`, `aria-expanded`, `aria-live`, `aria-pressed`, `aria-required`, `aria-describedby` en todos los elementos interactivos
+- Skip-link para navegación por teclado
+- Indicador `:focus-visible` visible en todos los elementos
+- Contraste de texto sobre fondo cumple relación mínima 4.5:1
+- Navegación completa por teclado (Tab, Enter, flechas en carrusel)
+- Botones de tamaño de fuente (A- A A+) para usuarios con baja visión
+- Soporte para `prefers-reduced-motion`
+
+### Web Storage (localStorage)
+Tres usos distintos de `localStorage`:
+1. **Tema claro/oscuro** — guarda y restaura la preferencia del usuario al recargar
+2. **Tamaño de fuente** — guarda el nivel de texto elegido (pequeño, normal, grande)
+3. **Estado de la carta** — recuerda si el menú completo estaba expandido o cerrado
+
+---
+
+## Funcionalidades destacadas
+
+- Carrusel de galería con loop infinito, autoplay, navegación por teclado y dots indicadores
+- Menú expandible con 12 productos — botón que se mueve dinámicamente al abrirse y cerrarse
+- Botón flotante de WhatsApp para pedidos directos
+- Botón flotante de regreso al inicio
+- Modo oscuro completo activable desde el nav
+- Menú hamburguesa en todas las pantallas (desktop y móvil)
+- Mapa de Google Maps embebido con ubicación exacta del negocio
+- Scroll reveal con `IntersectionObserver`
+
+---
+
+## Estructura del proyecto
+
+```
+lab01/
+index.html
+README.md
+css/
+  styles.css
+js/
+  script.js
+```
 
 ---
 
 ## Instrucciones de ejecución
 
-No requiere instalación ni servidor. Para visualizar el proyecto:
+No requiere instalación ni servidor. Para visualizar el proyecto localmente:
 
-1. Clonar o descargar el repositorio
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/joseandres0508/Laboratorio01.git
+   ```
 2. Abrir el archivo `index.html` directamente en el navegador
+
+El proyecto también está disponible en línea vía GitHub Pages:  
+🔗 **https://joseandres0508.github.io/Laboratorio01/**
+
+---
+
+## Integrantes
+
+- [Nombre completo — Integrante 1]
+- [Nombre completo — Integrante 2]
