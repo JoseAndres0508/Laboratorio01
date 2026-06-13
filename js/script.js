@@ -328,29 +328,40 @@ btnIncrease.addEventListener('click', () => applyFontSize(fontIndex + 1));
    9. PANEL FLOTANTE DE ACCESIBILIDAD
    Abrir/cerrar con el botón Aa
    ============================================= */
+/* =============================================
+   9. PANEL FLOTANTE DE ACCESIBILIDAD
+   ============================================= */
 const accToggle   = document.getElementById('accesibilidadToggle');
 const accControls = document.getElementById('accesibilidadControls');
 
+// Asegurarse que empieza cerrado
+accControls.classList.remove('acc-open');
+
 accToggle.addEventListener('click', (e) => {
   e.stopPropagation();
-  const isOpen = !accControls.hidden;
-  accControls.hidden = isOpen;
-  accToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+  const isOpen = accControls.classList.contains('acc-open');
+  if (isOpen) {
+    accControls.classList.remove('acc-open');
+    accToggle.setAttribute('aria-expanded', 'false');
+  } else {
+    accControls.classList.add('acc-open');
+    accToggle.setAttribute('aria-expanded', 'true');
+  }
 });
 
-// Cerrar al hacer click fuera del panel
+// Cerrar al hacer click fuera
 document.addEventListener('click', (e) => {
   const panel = document.querySelector('.accesibilidad-panel');
   if (!panel.contains(e.target)) {
-    accControls.hidden = true;
+    accControls.classList.remove('acc-open');
     accToggle.setAttribute('aria-expanded', 'false');
   }
 });
 
 // Cerrar con Escape
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !accControls.hidden) {
-    accControls.hidden = true;
+  if (e.key === 'Escape' && accControls.classList.contains('acc-open')) {
+    accControls.classList.remove('acc-open');
     accToggle.setAttribute('aria-expanded', 'false');
     accToggle.focus();
   }

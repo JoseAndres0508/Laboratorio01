@@ -1647,18 +1647,23 @@ body.dark-mode .menu-variant {
   transform: scale(1.08);
 }
 
-/* Panel de controles — aparece encima del botón */
+/* Panel de controles — oculto por defecto */
 .accesibilidad-controls {
+  display: none;
   background: var(--white);
   border: 2px solid var(--yellow);
   border-radius: 4px;
   padding: 1rem;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  display: flex;
   flex-direction: column;
   gap: 0.6rem;
   min-width: 160px;
   order: -1;
+}
+
+/* Visible cuando tiene la clase acc-open */
+.accesibilidad-controls.acc-open {
+  display: flex;             /* Flexbox */
 }
 
 .accesibilidad-label {
