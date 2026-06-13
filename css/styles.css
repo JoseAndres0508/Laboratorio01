@@ -1518,11 +1518,17 @@ body.dark-mode .hero-bg-img {
 }
 
 body.dark-mode .hero-title {
+  color: #FFF9C4 !important;
   text-shadow: 3px 3px 0 rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.9) !important;
 }
 
+body.dark-mode .hero-title em {
+  color: #FDD835 !important;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.8), 0 0 40px rgba(253,216,53,0.3) !important;
+}
+
 body.dark-mode .hero-subtitle {
-  color: var(--yellow) !important;
+  color: #FFB74D !important;
   opacity: 1 !important;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
 }
