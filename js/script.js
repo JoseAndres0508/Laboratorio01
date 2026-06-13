@@ -331,8 +331,9 @@ btnIncrease.addEventListener('click', () => applyFontSize(fontIndex + 1));
 const accToggle   = document.getElementById('accesibilidadToggle');
 const accControls = document.getElementById('accesibilidadControls');
 
-accToggle.addEventListener('click', () => {
-  const isOpen = accControls.hidden === false;
+accToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = !accControls.hidden;
   accControls.hidden = isOpen;
   accToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
 });
