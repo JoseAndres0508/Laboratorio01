@@ -45,73 +45,6 @@ registrarVisita();
    El estado se guarda en localStorage para persistir al recargar.
    ============================================= */
 
-const CARTA_KEY  = 'deliempanadas_carta_abierta';
-const menuFooter = document.getElementById('menuFooter');   // contenedor original
-const cartaPanel = document.getElementById('carta-completa');
-const btn        = document.getElementById('btnCarta');     // el único botón
-
-function abrirCarta(scroll = false) {
-  // 1. Mostrar los 8 cortes extra
-  cartaPanel.hidden = false;
-
-  // 2. Mover el botón al final del panel
-  cartaPanel.appendChild(menuFooter);
-
-  // 3. Cambiar texto y estilo del botón
-  btn.innerHTML = 'Cerrar carta <span aria-hidden="true">↑</span>';
-  btn.setAttribute('aria-expanded', 'true');
-  btn.setAttribute('aria-label', 'Cerrar la carta completa');
-
-  // 4. Añadir separador visual cuando está al fondo
-  menuFooter.classList.add('carta-btn-bottom');
-
-  // 5. Guardar estado
-  localStorage.setItem(CARTA_KEY, 'true');
-
-  // 6. Scroll suave hacia los nuevos cortes
-  if (scroll) {
-    setTimeout(() => {
-      cartaPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 50);
-  }
-}
-
-function cerrarCarta() {
-  // 1. Mover el botón de vuelta a su posición original (debajo de las 4 cartas)
-  const menuSection = cartaPanel.parentElement;
-  menuSection.insertBefore(menuFooter, cartaPanel);
-
-  // 2. Ocultar los 8 cortes extra
-  cartaPanel.hidden = true;
-
-  // 3. Restaurar texto y estilo del botón
-  btn.innerHTML = 'Ver carta completa <span class="btn-arrow" aria-hidden="true">↓</span>';
-  btn.setAttribute('aria-expanded', 'false');
-  btn.setAttribute('aria-label', 'Ver los 12 cortes de la carta completa');
-
-  // 4. Quitar separador visual
-  menuFooter.classList.remove('carta-btn-bottom');
-
-  // 5. Guardar estado
-  localStorage.setItem(CARTA_KEY, 'false');
-
-  // 6. Scroll suave de vuelta al botón
-  setTimeout(() => {
-    menuFooter.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 50);
-}
-
-// Restaurar estado al recargar la página
-if (localStorage.getItem(CARTA_KEY) === 'true') {
-  abrirCarta(false);
-}
-
-// Un solo listener — el botón siempre sabe en qué estado está
-btn.addEventListener('click', () => {
-  const abierta = btn.getAttribute('aria-expanded') === 'true';
-  abierta ? cerrarCarta() : abrirCarta(true);
-});
-
 /* =============================================
    2. MENÚ HAMBURGUESA (móvil)
    ============================================= */
@@ -171,12 +104,6 @@ function observeReveal(selector) {
 }
 
 observeReveal('.menu-card, .nosotros-text, .nosotros-img, .test-card, .g-item');
-
-btn.addEventListener('click', () => {
-  if (btn.getAttribute('aria-expanded') === 'true') {
-    setTimeout(() => observeReveal('.carta-grid .menu-card'), 100);
-  }
-});
 
 /* =============================================
    5. BOTÓN FLOTANTE — Volver al inicio

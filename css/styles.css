@@ -1543,3 +1543,43 @@ body.dark-mode .band {
 body.dark-mode .band .dot {
   color: var(--yellow) !important;
 }
+
+/* =============================================
+   MENÚ — grid 3 columnas para 6 productos
+   ============================================= */
+.menu-grid-3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+/* Etiqueta "+₡600 arreglada" */
+.menu-variant {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-family: var(--ff-title);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--red);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+}
+
+body.dark-mode .menu-variant {
+  background: var(--orange);
+}
+
+/* Responsive — 2 columnas en tablet */
+@media (max-width: 1024px) {
+  .menu-grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Responsive — 1 columna en móvil */
+@media (max-width: 768px) {
+  .menu-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+}

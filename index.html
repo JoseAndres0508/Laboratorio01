@@ -116,24 +116,9 @@
         <h2 id="menu-titulo">Lo que hacemos<br /><em>con pasión</em></h2>
       </header>
 
-      <ul class="menu-grid" aria-label="Platos del menú">
+      <ul class="menu-grid menu-grid-3" aria-label="Menú de DeliEmpanadas">
 
-        <li class="menu-card featured" aria-labelledby="plato-emp-carne">
-          <figure>
-            <img
-              src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80"
-              alt="Empanada de carne recién horneada con relleno jugoso"
-              class="menu-img"
-            />
-            <figcaption class="menu-info">
-              <span class="menu-tag">La más pedida</span>
-              <h3 id="plato-emp-carne">Empanada de Carne</h3>
-              <p>Relleno de carne molida sazonada, cebolla caramelizada y especias secretas. Masa dorada y crocante.</p>
-              <strong class="menu-price">₡2.200</strong>
-            </figcaption>
-          </figure>
-        </li>
-
+        <!-- Fila 1 -->
         <li class="menu-card" aria-labelledby="plato-emp-pollo">
           <figure>
             <img
@@ -142,9 +127,27 @@
               class="menu-img"
             />
             <figcaption class="menu-info">
+              <span class="menu-tag">La más pedida</span>
               <h3 id="plato-emp-pollo">Empanada de Pollo</h3>
-              <p>Pollo desmenuzado con crema, vegetales frescos y una pizca de culantro. Suave y deliciosa.</p>
-              <strong class="menu-price">₡2.200</strong>
+              <p>Pollo desmenuzado, suave y jugoso. También disponible de carne o queso.</p>
+              <strong class="menu-price">₡1.400</strong>
+              <span class="menu-variant">+₡600 arreglada</span>
+            </figcaption>
+          </figure>
+        </li>
+
+        <li class="menu-card" aria-labelledby="plato-emp-carne">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80"
+              alt="Empanada de carne recién horneada con relleno jugoso"
+              class="menu-img"
+            />
+            <figcaption class="menu-info">
+              <h3 id="plato-emp-carne">Empanada de Carne</h3>
+              <p>Carne molida sazonada con especias de la casa. Masa dorada y crocante.</p>
+              <strong class="menu-price">₡1.400</strong>
+              <span class="menu-variant">+₡600 arreglada</span>
             </figcaption>
           </figure>
         </li>
@@ -158,8 +161,42 @@
             />
             <figcaption class="menu-info">
               <h3 id="plato-emp-queso">Empanada de Queso</h3>
-              <p>Rellena con queso blanco derretido. Sencilla, irresistible y perfecta para cualquier hora.</p>
+              <p>Queso blanco derretido por dentro. Sencilla, irresistible y perfecta para cualquier hora.</p>
+              <strong class="menu-price">₡1.400</strong>
+              <span class="menu-variant">+₡600 arreglada</span>
+            </figcaption>
+          </figure>
+        </li>
+
+        <!-- Fila 2 -->
+        <li class="menu-card" aria-labelledby="plato-emp-bomba">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80"
+              alt="Empanada bomba rellena de pollo o carne con frijoles y queso"
+              class="menu-img"
+            />
+            <figcaption class="menu-info">
+              <span class="menu-tag">Especial</span>
+              <h3 id="plato-emp-bomba">Empanada Bomba</h3>
+              <p>Pollo o carne con frijoles y queso derretido. ¡Una explosión de sabor!</p>
               <strong class="menu-price">₡1.800</strong>
+              <span class="menu-variant">+₡600 arreglada</span>
+            </figcaption>
+          </figure>
+        </li>
+
+        <li class="menu-card" aria-labelledby="plato-burger">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80"
+              alt="Hamburguesa jugosa torta a la plancha"
+              class="menu-img"
+            />
+            <figcaption class="menu-info">
+              <h3 id="plato-burger">Hamburguesa</h3>
+              <p>Jugosa torta a la plancha. Rica carne desmechada 🤤</p>
+              <strong class="menu-price">₡2.000</strong>
             </figcaption>
           </figure>
         </li>
@@ -167,168 +204,19 @@
         <li class="menu-card" aria-labelledby="plato-sandwich">
           <figure>
             <img
-              src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?w=600&q=80"
-              alt="Sándwich artesanal con ingredientes frescos"
+              src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600&q=80"
+              alt="Sándwich de pollo o carne desmechada"
               class="menu-img"
             />
             <figcaption class="menu-info">
-              <h3 id="plato-sandwich">Sándwich del Día</h3>
-              <p>Pan artesanal tostado, relleno del día con ingredientes frescos y nuestra salsa especial.</p>
-              <strong class="menu-price">₡3.500</strong>
+              <h3 id="plato-sandwich">Sándwich</h3>
+              <p>Pollo o rica carne desmechada 🤤 en pan artesanal tostado al momento.</p>
+              <strong class="menu-price">₡2.000</strong>
             </figcaption>
           </figure>
         </li>
 
       </ul>
-
-      <!-- Botón — se mueve con JS -->
-      <aside class="menu-footer" id="menuFooter">
-        <button
-          class="btn-outline"
-          id="btnCarta"
-          aria-expanded="false"
-          aria-controls="carta-completa"
-          aria-label="Ver el menú completo"
-        >
-          Ver menú completo <span class="btn-arrow" aria-hidden="true">↓</span>
-        </button>
-      </aside>
-
-      <!-- MENÚ COMPLETO -->
-      <section
-        class="carta-completa"
-        id="carta-completa"
-        hidden
-        aria-label="Menú completo"
-      >
-        <p class="carta-divider" aria-hidden="true">— Todo nuestro menú —</p>
-        <ul class="carta-grid" aria-label="Productos adicionales">
-
-          <li class="menu-card" aria-labelledby="plato-burger-clasica">
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80"
-                alt="Hamburguesa clásica con lechuga, tomate y queso"
-                class="menu-img"
-              />
-              <figcaption class="menu-info">
-                <h3 id="plato-burger-clasica">Burger Clásica</h3>
-                <p>Carne 100% de res, queso cheddar, lechuga, tomate y nuestra salsa de la casa.</p>
-                <strong class="menu-price">₡5.500</strong>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li class="menu-card" aria-labelledby="plato-burger-pollo">
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1606755962773-d324e9a13086?w=600&q=80"
-                alt="Hamburguesa de pollo apanado con salsa especial"
-                class="menu-img"
-              />
-              <figcaption class="menu-info">
-                <h3 id="plato-burger-pollo">Burger de Pollo</h3>
-                <p>Pechuga apanada, crujiente por fuera y jugosa por dentro. Con coleslaw y pepinillos.</p>
-                <strong class="menu-price">₡5.200</strong>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li class="menu-card" aria-labelledby="plato-sandwich-jamon">
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600&q=80"
-                alt="Sándwich de jamón y queso en pan artesanal"
-                class="menu-img"
-              />
-              <figcaption class="menu-info">
-                <h3 id="plato-sandwich-jamon">Sándwich Jamón y Queso</h3>
-                <p>Jamón ahumado, queso amarillo derretido en pan artesanal tostado al momento.</p>
-                <strong class="menu-price">₡3.200</strong>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li class="menu-card" aria-labelledby="plato-combo">
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80"
-                alt="Combo de empanadas variadas para compartir"
-                class="menu-img"
-              />
-              <figcaption class="menu-info">
-                <span class="menu-tag">Popular</span>
-                <h3 id="plato-combo">Combo Deli x3</h3>
-                <p>3 empanadas a tu elección — carne, pollo o queso. La mejor forma de probar todo.</p>
-                <strong class="menu-price">₡6.000</strong>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li class="menu-card" aria-labelledby="plato-emp-mixta">
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=600&q=80"
-                alt="Empanada mixta de carne y queso"
-                class="menu-img"
-              />
-              <figcaption class="menu-info">
-                <h3 id="plato-emp-mixta">Empanada Mixta</h3>
-                <p>Lo mejor de dos mundos: carne y queso juntos en una sola empanada. Imperdible.</p>
-                <strong class="menu-price">₡2.500</strong>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li class="menu-card" aria-labelledby="plato-burger-doble">
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&q=80"
-                alt="Hamburguesa doble con dos medallones de carne"
-                class="menu-img"
-              />
-              <figcaption class="menu-info">
-                <span class="menu-tag">Para los hambrientos</span>
-                <h3 id="plato-burger-doble">Burger Doble</h3>
-                <p>Dos medallones de res, doble queso, bacon crocante y todo lo que la hace especial.</p>
-                <strong class="menu-price">₡7.500</strong>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li class="menu-card" aria-labelledby="plato-sandwich-veggie">
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80"
-                alt="Sándwich vegetariano con vegetales frescos y aguacate"
-                class="menu-img"
-              />
-              <figcaption class="menu-info">
-                <h3 id="plato-sandwich-veggie">Sándwich Veggie</h3>
-                <p>Aguacate, tomate, pepino, queso crema y vegetales de temporada. Fresco y saciador.</p>
-                <strong class="menu-price">₡3.800</strong>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li class="menu-card" aria-labelledby="plato-emp-especial">
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80"
-                alt="Empanada especial del día con relleno sorpresa"
-                class="menu-img"
-              />
-              <figcaption class="menu-info">
-                <span class="menu-tag">Del día</span>
-                <h3 id="plato-emp-especial">Empanada Especial</h3>
-                <p>Relleno sorpresa que cambia cada día según los ingredientes frescos disponibles.</p>
-                <strong class="menu-price">₡2.800</strong>
-              </figcaption>
-            </figure>
-          </li>
-
-        </ul>
-      </section>
 
     </section>
 
