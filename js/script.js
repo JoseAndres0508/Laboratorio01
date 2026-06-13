@@ -140,14 +140,12 @@ navMenu.querySelectorAll('a').forEach(link => {
 const nav = document.querySelector('.nav');
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) {
-    nav.style.background     = '#B71C1C';
-    nav.style.backdropFilter = 'blur(12px)';
-    nav.style.borderBottom   = '3px solid #F9A825';
+  if (window.scrollY > 80) {
+    nav.classList.add('nav-shrink');
+    nav.style.background = '#B71C1C';
   } else {
-    nav.style.background     = '#D32F2F';
-    nav.style.backdropFilter = 'blur(2px)';
-    nav.style.borderBottom   = '3px solid #F9A825';
+    nav.classList.remove('nav-shrink');
+    nav.style.background = '#D32F2F';
   }
 }, { passive: true });
 
