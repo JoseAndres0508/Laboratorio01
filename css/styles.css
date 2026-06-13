@@ -1615,3 +1615,43 @@ body.dark-mode .menu-variant {
   flex-shrink: 0;
   align-self: flex-start;
 }
+
+/* Altura uniforme en las tarjetas del menú */
+.menu-grid-3 .menu-info {
+  min-height: 160px;
+  display: flex;             /* Flexbox */
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Precio especial en tarjeta de encargos */
+.menu-card-encargo .menu-price {
+  font-size: 0.95rem !important;
+  color: var(--orange) !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Centrar las 2 tarjetas de la fila 3 */
+.menu-grid-3 li:nth-child(7),
+.menu-grid-3 li:nth-child(8) {
+  grid-column: auto;
+}
+
+.menu-grid-3:has(li:nth-child(8)):not(:has(li:nth-child(9))) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Las últimas 2 tarjetas centradas cuando son par */
+@supports (grid-template-columns: subgrid) {
+  .menu-grid-3 li:nth-last-child(2):nth-child(3n+1) {
+    grid-column: 1 / 2;
+  }
+}
+
+/* Solución directa — centrar las 2 últimas con margen */
+.menu-grid-3 li:nth-child(7) {
+  grid-column: 1 / 2;
+}
+.menu-grid-3 li:nth-child(8) {
+  grid-column: 2 / 3;
+}
