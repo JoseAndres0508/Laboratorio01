@@ -323,3 +323,34 @@ applyFontSize(savedFont !== null ? parseInt(savedFont) : FONT_DEFAULT);
 btnDecrease.addEventListener('click', () => applyFontSize(fontIndex - 1));
 btnReset.addEventListener('click',    () => applyFontSize(FONT_DEFAULT));
 btnIncrease.addEventListener('click', () => applyFontSize(fontIndex + 1));
+
+/* =============================================
+   9. PANEL FLOTANTE DE ACCESIBILIDAD
+   Abrir/cerrar con el botón Aa
+   ============================================= */
+const accToggle   = document.getElementById('accesibilidadToggle');
+const accControls = document.getElementById('accesibilidadControls');
+
+accToggle.addEventListener('click', () => {
+  const isOpen = accControls.hidden === false;
+  accControls.hidden = isOpen;
+  accToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+});
+
+// Cerrar al hacer click fuera del panel
+document.addEventListener('click', (e) => {
+  const panel = document.querySelector('.accesibilidad-panel');
+  if (!panel.contains(e.target)) {
+    accControls.hidden = true;
+    accToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Cerrar con Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !accControls.hidden) {
+    accControls.hidden = true;
+    accToggle.setAttribute('aria-expanded', 'false');
+    accToggle.focus();
+  }
+});
