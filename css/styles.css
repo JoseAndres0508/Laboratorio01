@@ -839,20 +839,22 @@ body {
 }
 
 .test-track {
-  display: flex;             /* Flexbox */
+  display: grid;             /* Grid — 3 columnas iguales */
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   padding: 0 8rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: stretch;      /* todas la misma altura */
 }
 
 .test-card {
-  flex: 0 0 360px;
   background: var(--white);
   border: 2px solid var(--yellow);
   border-left: 6px solid var(--red);
   padding: 2rem;
   box-shadow: 4px 4px 0 var(--yellow);
+  display: flex;             /* Flexbox interno para alinear cite al fondo */
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .test-card blockquote p {
@@ -1242,7 +1244,7 @@ label {
   .footer-top { padding: 4rem 3rem; grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: span 2; }
   .footer-bottom { padding: 1.5rem 3rem; }
-  .test-track { padding: 0 2rem; }
+  .test-track { padding: 0 2rem; grid-template-columns: 1fr 1fr; }
 }
 
 /* =============================================
@@ -1272,8 +1274,8 @@ label {
   .footer-top { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2rem; }
   .footer-brand { grid-column: auto; }
   .footer-bottom { padding: 1.5rem 2rem; }
-  .test-track { flex-direction: column; align-items: center; }
-  .test-card { flex: 0 0 auto; width: 100%; max-width: 440px; }
+  .test-track { padding: 0 1.5rem; grid-template-columns: 1fr; }
+  .test-card { width: 100%; }
   .carrusel-slide img { height: 280px; }
   .carrusel-caption { font-size: 0.9rem; padding: 2rem 1rem 0.9rem; }
   .carrusel-btn { width: 38px; height: 38px; font-size: 1.4rem; }
