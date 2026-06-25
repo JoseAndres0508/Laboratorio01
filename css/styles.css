@@ -1393,3 +1393,19 @@ body.dark-mode .accesibilidad-controls             { background: #2D2D2D; border
 body.dark-mode .accesibilidad-controls .font-btn   { background: #3D3D3D; border-color: #555; color: #F5F5F5; }
 body.dark-mode .accesibilidad-controls .theme-btn  { background: #3D3D3D; border-color: #555; color: #F5F5F5; }
 body.dark-mode .accesibilidad-controls .font-controls { background: #1A1A1A; }
+
+/* =============================================
+   FOCO VISIBLE — tarjetas menú y nosotros
+   Necesario para navegación por teclado (Tab)
+   ============================================= */
+.menu-card:focus {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(244,81,30,0.25);
+}
+
+.nosotros-img:focus {
+  outline: 3px solid var(--red);
+  outline-offset: 6px;
+}
